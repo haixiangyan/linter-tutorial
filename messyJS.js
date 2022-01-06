@@ -1,3 +1,4 @@
+import {hi, aa} from './messySubJS'
 let x = 1
 
 let y = {
@@ -6,3 +7,5 @@ let y = {
 console.log('result'
   ,x,
   y)
+
+console.log(hi,        aa)
