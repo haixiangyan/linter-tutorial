@@ -1,0 +1,20 @@
+{
+  "name": "learn-prettier-linter",
+  "version": "1.0.0",
+  "description": "学习 prettier 和 linter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haixiangyan/learn-prettier-linter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haixiangyan/learn-prettier-linter/issues"
+  },
+  "homepage": "https://github.com/haixiangyan/learn-prettier-linter#readme"
+}
