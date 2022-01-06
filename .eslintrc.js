@@ -16,5 +16,7 @@ module.exports = {
   plugins: [
     "@typescript-eslint", // 可以使用一些规则
   ],
-  rules: {},
+  rules: {
+    "max-len": ["error", { "code": 80 }],
+  },
 };
