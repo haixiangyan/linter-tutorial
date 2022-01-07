@@ -36,6 +36,7 @@ const y = {
 };
 
 y.z = 1;
+y.z = 2;
 
 console.log("z", x, y);
 

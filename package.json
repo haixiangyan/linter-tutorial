@@ -37,7 +37,7 @@
     "typescript": "^4.5.4"
   },
   "lint-staged": {
-    "*.js": ["eslint --fix"],
-    "*.css": ["stylelint . --cache --fix"]
+    "**/*.{js,ts}": ["eslint --cache --fix"],
+    "**/*.{css,less}": ["stylelint --cache --fix"]
   }
 }
