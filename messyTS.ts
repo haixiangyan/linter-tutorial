@@ -35,6 +35,8 @@ const y = {
   age: 11,
 };
 
+y.z = 1;
+
 console.log("z", x, y);
 
 const z: any = 1;
