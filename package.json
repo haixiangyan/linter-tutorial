@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/haixiangyan/learn-prettier-linter#readme",
   "devDependencies": {
+    "@types/react": "^17.0.38",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "eslint": "^7.32.0",
@@ -41,6 +42,11 @@
       "eslint --cache --fix",
       "bash -c 'tsc --noEmit'"
     ],
-    "**/*.{css,less}": ["stylelint --cache --fix"]
+    "**/*.{css,less}": [
+      "stylelint --cache --fix"
+    ]
+  },
+  "dependencies": {
+    "react": "^17.0.2"
   }
 }
