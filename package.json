@@ -4,7 +4,8 @@
   "description": "学习 prettier 和 linter",
   "main": "index.js",
   "scripts": {
-    "prettier": "npx prettier --write ."
+    "prettier": "npx prettier --write .",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,8 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.5",
     "postcss-less": "^5.0.0",
     "prettier": "^2.5.1",
     "stylelint": "^14.2.0",
@@ -32,5 +35,9 @@
     "stylelint-less": "^1.0.1",
     "stylelint-prettier": "^2.0.0",
     "typescript": "^4.5.4"
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix"],
+    "*.css": ["stylelint . --cache --fix"]
   }
 }

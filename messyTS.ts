@@ -1,27 +1,54 @@
-import {Human} from "./messyTypes";
+// import {Human} from "./messyTypes";
+//
+// const x = 1
+//
+// const y = {
+//   name: 'Jack', age: 11 }
+//
+// console.log(
+//   'z',x,y
+// )
+//
+// const z: any = 1
+// console.log('z',z)
+//
+// const human: Human = {
+//   noise: 1,
+//
+//
+//
+//   eye: 2,
+// }
+//
+// const hello: Hello = {
+//   name: 'xx', age: 11
+// }
+//
+// console.log('x', human, hello)
 
-const x = 1
+import { Human } from "./messyTypes";
+
+const x = 1;
 
 const y = {
-  name: 'Jack', age: 11 }
+  name: "Jack",
+  age: 11,
+};
 
-console.log(
-  'z',x,y
-)
+console.log("z", x, y);
 
-const z: any = 1
-console.log('z',z)
+const z: any = 1;
+console.log("z", z);
 
 const human: Human = {
   noise: 1,
 
-
-
   eye: 2,
-}
+};
 
 const hello: Hello = {
-  name: 'xx', age: 11
-}
+  name: "xx",
+  age: 11,
+};
 
-console.log('x', human, hello)
+console.log("x", human, hello);

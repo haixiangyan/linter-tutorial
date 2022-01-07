@@ -1,8 +1,8 @@
 module.exports = {
   root: true,
   env: {
-    "browser": true,
-    "node": true
+    browser: true,
+    node: true,
   },
   extends: [
     "eslint:recommended", // eslint 自己的推荐规则，最佳实践最小集
