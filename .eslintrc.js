@@ -11,7 +11,7 @@ module.exports = {
   overrides: [
     // 处理 React 的 TS 文件
     {
-      files: ["**/*.ts", "**/*.js"], // 只处理 ts 和 js 文件
+      files: ["**/*.{ts,tsx}", "**/*.{js,jsx}"], // 只处理 ts 和 js 文件
       excludedFiles: [".eslintrc.js"], // 这里禁用了 .eslintrc.js 的类型检查
       parser: "@typescript-eslint/parser", // 能看懂 TypeScript
       parserOptions: {
