@@ -43,6 +43,9 @@
       "eslint --cache --fix",
       "bash -c 'tsc --noEmit'"
     ],
+    "*.{vue}": [
+      "eslint --cache --fix"
+    ],
     "**/*.{css,less}": [
       "stylelint --cache --fix"
     ]
