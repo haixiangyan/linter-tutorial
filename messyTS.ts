@@ -35,8 +35,9 @@ const y = {
   age: 11,
 };
 
-y.z = 1;
-y.z = 2;
+// y.z = 1;
+// y.z = 2;
+// y.z = 2;
 
 console.log("z", x, y);
 
