@@ -60,3 +60,4 @@ let y = {
 console.log("result", x, y);
 
 console.log(hi, aa);
+console.log(hi, aa);
