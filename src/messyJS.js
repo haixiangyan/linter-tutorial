@@ -28,6 +28,9 @@
 // console.log(hi,        aa)
 
 import { hi, aa } from "./messySubJS";
+for (let x of []) {
+  console.log("xx");
+}
 let x = 1;
 
 // eslint error
