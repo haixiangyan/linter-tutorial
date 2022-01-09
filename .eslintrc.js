@@ -1,8 +1,12 @@
 module.exports = {
   root: true,
   env: {
+    // 支持浏览器环境
     browser: true,
+    // 识别 CommonJS
     node: true,
+    // 识别 ES 的代码，使用 ECMAScript 2021 自动设置 ecmaVersion parser 为 12，
+    es2021: true,
   },
   extends: [
     "eslint:recommended", // eslint 自己的推荐规则，最佳实践最小集
@@ -18,11 +22,14 @@ module.exports = {
         project: ["./tsconfig.json"], // 告诉 eslint：tsconfig 在哪
       },
       extends: [
-        "plugin:@typescript-eslint/recommended", // typescript-eslint 的推荐规则，只是这些最佳规则都是针对 TS 的
-        "plugin:@typescript-eslint/recommended-requiring-type-checking", // tsconfig.json 里 Type Checking 的推荐规则
+        // typescript-eslint 的推荐规则，只是这些最佳规则都是针对 TS 的
+        "plugin:@typescript-eslint/recommended",
+        // tsconfig.json 里 Type Checking 的推荐规则
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
       ],
       plugins: [
-        "@typescript-eslint", // 使用 typescript x eslint 的插件
+        // 使用 typescript x eslint 的插件
+        "@typescript-eslint",
       ],
     },
     // 处理 vue 文件
@@ -31,10 +38,4 @@ module.exports = {
       extends: ["plugin:vue/vue3-recommended"], // 使用 vue3 的推荐规则
     },
   ],
-  plugins: [
-    "prettier", // 使用 prettier 插件
-  ],
-  rules: {
-    "prettier/prettier": "error", // 代码风格有问题就报 error
-  },
 };

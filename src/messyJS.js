@@ -28,24 +28,18 @@
 // console.log(hi,        aa)
 
 import { hi, aa } from "./messySubJS";
-for (let x of []) {
-  console.log("xx");
-}
 let x = 1;
 
-// eslint error
+// // eslint error
 // for (let i = 0; i < 10; i--) {
 //   console.log(i);
 // }
 
-// eslint error
-const foo = {
-  bar: "This is a bar.",
-  baz: { qux: "This is a qux" },
-  difficult:
-    "to readjalsdjflajsdflkjalsdfjlaksdjflkajsdflkajslkdfjalksjdflkasjdflkasj",
-}; // very long
-console.log("foo", foo);
+// // eslint error
+// const foo = { "bar": "This is a bar.", "baz": { "qux": "This is a qux" }, "difficult": "to readjalsdjflajsdflkjalsdfjlaksdjflkajsdflkajslkdfjalksjdflkasjdflkasj" }; // very long
+// console.log('foo', foo);
+
+const foo = 1;
 
 if (foo) {
   //...
@@ -62,5 +56,4 @@ let y = {
 
 console.log("result", x, y);
 
-console.log(hi, aa);
 console.log(hi, aa);
