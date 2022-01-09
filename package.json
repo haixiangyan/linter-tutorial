@@ -46,7 +46,7 @@
     "*.vue": [
       "eslint --cache --fix"
     ],
-    "**/*.{css,less}": [
+    "*.{css,less}": [
       "stylelint --cache --fix"
     ]
   },
