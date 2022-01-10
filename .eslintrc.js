@@ -12,18 +12,19 @@ module.exports = {
     "eslint:recommended", // eslint 自己的推荐规则，最佳实践最小集
     "plugin:prettier/recommended", // 禁用 eslint 关于代码的风格的规则，使用 prettier 的风格
   ],
-  parserOptions: {
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
   overrides: [
     // 处理 JS 文件
     {
-      files: ["**/*.{js,jsx}"],
-      excludedFiles: [".eslintrc.js"], // 这里禁用了 .eslintrc.js 的类型检查
+      files: ["**/*.{js,jsx}"], // 只处理 js 和 jsx 文件
+      parser: "@babel/eslint-parser", // 使用 babel 来解析 js 文件
       extends: ["plugin:react/recommended"],
+      parserOptions: {
+        sourceType: "module", // 支持 import/export
+        allowImportExportEverywhere: false,
+        ecmaFeatures: {
+          globalReturn: false,
+        },
+      },
     },
     // 处理 TS 文件
     {
