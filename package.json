@@ -41,7 +41,7 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --cache --fix",
-      "bash -c 'tsc --noEmit'"
+      "bash -c 'tsc -p ./tsconfig.json'"
     ],
     "*.vue": [
       "eslint --cache --fix"
