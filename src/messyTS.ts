@@ -56,4 +56,6 @@ const hello: Hello = {
   age: 11,
 };
 
+ss;
+
 console.log("x", human, hello);
