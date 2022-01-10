@@ -47,7 +47,6 @@ console.log("z", z);
 const human: Human = {
   noise: 1,
   eye: 2,
-  abc: "name",
 };
 
 const za = 1;
