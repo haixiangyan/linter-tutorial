@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "prettier": "npx prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -39,7 +41,8 @@
     "stylelint-config-standard": "^24.0.0",
     "stylelint-less": "^1.0.1",
     "stylelint-prettier": "^2.0.0",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "vuepress": "^1.9.5"
   },
   "dependencies": {
     "react": "^17.0.2"
