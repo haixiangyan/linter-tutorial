@@ -49,7 +49,7 @@ const human: Human = {
   eye: 2,
 };
 
-console.log("hello", 1);
+console.log("hello", 1, 2);
 
 const za = 1;
 
