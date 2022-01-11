@@ -1,5 +1,11 @@
 module.exports = {
-  '**/*.{ts,tsx,js,jsx}': [
+  '**/*.{ts,tsx}': [
+    (filenames) => {
+      return 'tsc-files -p ./tsconfig.json --noEmit'
+    },
+    "eslint --cache --fix",
+  ],
+  '**/*.{js,jsx}': [
     "eslint --cache --fix",
   ],
   "**/*.vue": [
