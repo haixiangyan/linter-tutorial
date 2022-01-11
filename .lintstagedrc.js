@@ -1,8 +1,6 @@
 module.exports = {
   '**/*.{ts,tsx}': [
-    (filenames) => {
-      return 'tsc-files -p ./tsconfig.json --noEmit'
-    },
+    'tsc-files --noEmit',
     "eslint --cache --fix",
   ],
   '**/*.{js,jsx}': [

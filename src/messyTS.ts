@@ -47,10 +47,9 @@ console.log("z", z);
 const human: Human = {
   noise: 1,
   eye: 2,
-  name: 1,
 };
 
-console.log("hello");
+console.log("hello", 1);
 
 const za = 1;
 
