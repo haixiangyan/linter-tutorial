@@ -23,6 +23,7 @@ module.exports = {
         allowImportExportEverywhere: false,
         ecmaFeatures: {
           globalReturn: false,
+          jsx: true,
         },
       },
     },
