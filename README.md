@@ -26,8 +26,8 @@
 
 这篇文章主要分为两部分：
 
-* [理论篇](): 说清楚这些工具的历史和关系，让读者俯瞰整个工具生态
-* [实战篇]()：从 0 开始配置 Linter，边实战边讲解原理，覆盖范围：ESLint x TypeScript x JavaScript x Babel x JSX x Plugin x Husky x LintStaged x StyleLint
+* **理论篇**: 说清楚这些工具的历史和关系，让读者俯瞰整个工具生态
+* **实战篇**：从 0 开始配置 Linter，边实战边讲解原理，覆盖范围：ESLint x TypeScript x JavaScript x Babel x JSX x Plugin x Husky x LintStaged x StyleLint
 
 ## 花絮
 
