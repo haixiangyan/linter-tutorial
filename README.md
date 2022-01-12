@@ -1,5 +1,7 @@
 # 引子
 
+# 本项目还在编写中！有些图片资源是 404 的，预计春节前发布，大家可以春节时学习喽！
+
 > 本次实战的所有代码、配置已放在 [Github](https://github.com/haixiangyan/learn-prettier-linter "项目 Github") 可尽情把玩。
 
 哈喽大家好，我是海怪。
