@@ -32,7 +32,7 @@ console.log(hi,        aa)
 npm i -D eslint
 ```
 
-## ESLint x IDE
+## IDE 集成
 
 现在很多 IDE 的插件都和 ESLint 配合得非常好了：
 
@@ -40,7 +40,7 @@ npm i -D eslint
 
 > **温馨提示：下面在配置 eslint 过程中，如果会出现 “他奶奶地，我明明配置好了，为什么不生效？”的问题，你可以多刷新一下 ESLint（Disable 再 Enable）来使其生效。**
 
-## env
+## 指定环境
 
 回到项目，我们新建一个 `.eslintrc.js` 配置文件，里面什么都不写：
 
@@ -82,7 +82,7 @@ module.exports = {
 
 配置完了就发现 `let` 可以正常解析了。
 
-## 规则
+## 规则（集）
 
 同样的，如果不配置任何规则，那么 ESLint 不会报任务警告和错误。我们可以在 `rules` 里去配置自己想要 lint 的规则：
 
@@ -149,7 +149,7 @@ module.exports = {
 
 所以，以后大家只要看到 `eslint-config-xxx` 名字的 NPM 包，就知道它是 ESLint 的规则集了，或者当你要查某公司/工具/社区的规则集时，也可以通过 "eslint config xxx" 来搜索。
 
-## ESLint 规则分类
+## 规则分类
 
 ESLint 的规则分为两类:
 * **Formatting rules: 代码风格规则**。比如：max-len, no-mixed-spaces-and-tabs, keyword-spacing, comma-style

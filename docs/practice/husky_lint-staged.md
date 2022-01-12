@@ -1,4 +1,4 @@
-# 一只哈士奇
+# Husky x LintStaged
 
 我们不能保证所有人提交的代码都是 fix 好的。比如有的人经常忘记开启 ESLint 插件，提交代码时还以为自己代码写的贼 6，没啥报错，但到队友那 `git pull` 满屏都是红的。
 
@@ -42,7 +42,7 @@ npx eslint src --fix
 
 我们更希望只针对提交的文件进行 Lint 操作。
 
-## lint-staged
+## LintStaged
 
 Prettier 在 [文档的 Pre-commit Hook](https://prettier.io/docs/en/precommit.html) 已经介绍了很多只针对提交文件做 fix 的工具。这里以 [lint-staged](https://github.com/okonet/lint-staged) 做介绍。
 
@@ -91,7 +91,7 @@ npx lint-staged
 
 **因为 `lint-staged` 会把前面的 `*.{js,jsx,ts,tsx}` 来匹配提交的文件，并把它们作为参数传到 `eslint --cache --fix` 后面。所以虽然写的是 `eslint --cache --fix` 时实际上是执行了 `eslint 要修复的文件 --cache --fix`。**
 
-## lint-staged x TypeScript
+## LintStaged x TypeScript
 
 哼？你以为到这就完了么？Too yong too simple！如果你在 `.d.ts` 定义一个 `interface`：
 

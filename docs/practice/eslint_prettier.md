@@ -1,4 +1,4 @@
-# Prettier: ESLint，咋俩各论各的
+# ESLint x Prettier
 
 下面我们来配置 Prettier，它的作用就是格式化代码。先安装依赖：
 
@@ -47,7 +47,7 @@ console.log(hi, aa);
 npx prettier --check .
 ```
 
-## Prettier x IDE
+## IDE 集成
 
 每次都用命令行来修复文件肯定不现实。
 
@@ -67,7 +67,7 @@ npx prettier --write messyJS.js
 
 这个提示是 ESLint 报的提示，下面我们来讲怎么配置 ESLint x Prettier。
 
-## ESLint x Prettier
+## 配置 Prettier
 
 先安装 `eslint-plugin-prettier` 插件：
 
@@ -108,7 +108,7 @@ module.exports = {
 
 ![](https://files.mdnice.com/user/24913/7c29c1bf-aa7e-4cfe-a105-288dd31ef5cd.png)
 
-## 规则冲突
+## 解决规则冲突
 
 既然 Prettier 有自己代码风格，ESLint 里也有代码风格，难免会出现规则之间的冲突，比如 [在这个 Issue 里](https://github.com/prettier/eslint-plugin-prettier/issues/65 "规则冲突 Issue") 就说了在同时自动修复 `arrow-body-style` 和 `prefer-arrow-callback` 规则时，自动修复后的代码会少了个括号：
 

@@ -1,8 +1,10 @@
-# TypeScript: 再见TSLint，你好ESLint
+# ESLint x TypeScript
 
 欢迎回来！
 
 如今 2022 年，是个人都会用上 TypeScript，下面就来聊聊 ESLint x TypeSciprt。
+
+## 再无 TSLint
 
 **首先想说的是 TSLint 在 2019 年已经凉凉了，取而代之的是 [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser), [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) 两个 NPM 包。**
 
@@ -160,7 +162,7 @@ module.exports = {
 
 到此为止，你的 ESLint x TypeScript 已经完成了。
 
-## ESLint x Plugin
+## 命名规律
 
 通过上面的 ESLint x TypeScript 配置，我们不难发现 ESLint 的又一大规律：
 
