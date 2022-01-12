@@ -13,8 +13,13 @@ module.exports = {
         collapsable: false,
         children: [
           '/',
-          '/intro/history',
-          '/intro/ad'
+        ]
+      },
+      {
+        title: '理论',
+        collapsable: false,
+        children: [
+          '/theory/history',
         ]
       },
       {
