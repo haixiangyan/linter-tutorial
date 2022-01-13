@@ -97,28 +97,31 @@ interface Hello {
 ![](https://img-blog.csdnimg.cn/img_convert/44ec76dc2bb67f064fd94d86a5950071.png)
 
 这个问题在 [这个 Issue: Current version incorrectly analyzes @types/node](https://github.com/gustavopch/tsc-files/issues/20 "tsc-files 问题") 中又又又被疯狂讨论。
-里提到可以在 `typeRoots` 里写自定义类型声明文件的路径，但是这还是有问题，具体看下面这段：
+里面提出了一个想法：把 `typeRoots` 的路径放到 `include` 里，这样就可以用 `typeRoots` 自定义类型声明文件的路径来检测所有的 `.d.ts` 了，但是这还是有问题，具体看下面这段：
 
 ![这两段是该 Issue 的讨论核心](https://img-blog.csdnimg.cn/img_convert/27e855e1349058d32f258d3447d733ff.png)
 
-> deanolium 的观点是：我们不能保证所有人都会用 `tsconfig.json` 里的 `typeRoots`，因为不是所有人都是配置大神。
-> 如果要在 `typeRoots` 里写自定义类型声明文件，那就要手动加上 `./node_modules/@types` 目录。
-> 而且如果大家不了解 `tsc-files` 的原理和实现，根本就不知道有这个坑。`tsc-files` 升级版本还需要依赖 `tsconfig.json` 是不合理的。
+> deanolium 的观点是：如果把 `typeRoots` 放在 `include` 里，我们不能保证所有人都会用 `tsconfig.json` 里的 `typeRoots`，因为不是所有人都是配置大神。
+> 如果要在 `typeRoots` 里写自定义类型声明文件目录，那就要手动加上 `./node_modules/@types` 目录，不然不会自动 import node_modules 里的 `.d.ts`。
+> 而且如果大家不了解 `tsc-files` 的原理和实现，根本就不知道有这个坑。`tsc-files` 升级版本后还需要用户手动去改 `tsconfig.json` 并不是一个好的实践。
 
-> gustavopch（作者）的观点是：一方面使用 `tsc-files` 时不应该加上所有的文件，因为这就违反 `lint-staged` 使用的初衷了。
-> 另一方面也不能只在 `typeRoots` 里添加 `.d.ts` 文件的文件夹，因为有的人会把类型声明 `declare` 放在 `.ts` 那这样依然会出现找不到的情况。
+> gustavopch（作者）的观点是：一方面使用 `tsc-files` 时不应该加上所有的文件，因为这会扫描整个项目，就违反 `lint-staged` 使用的初衷了。
+> 另一方面就算 `include` 里能读取 `typeRoots` 目录也不能保证能自动检测到所有类型，因为有的人可能会在 `.ts` 也用 `declare` 来定义，也会有坑。
 
-累了，毁灭吧。真该颁个矛盾代码奖给 `tsc`。
+累了，毁灭吧。
+
+![](https://img-blog.csdnimg.cn/d143f175e1664f23995869564ba56a96.png)
 
 ## 最终方案
 
 总的来说，要么扫描 `src` 里的所有 `.ts` 做类型检查，要么只扫描 Git 提交的文件，但是会报找不到类型的错误。
 
-最终，有一位大哥提供了一种思路：**把你的 `.d.ts` 放到路径里。**
+最终，有一位大哥提供了一种思路：**可以不用 `tsc-files`，用 `tsc` ，不过需要把你自己写的 `.d.ts` 放到路径里。**
 
 ![](https://img-blog.csdnimg.cn/img_convert/e3538347b02c3f75b11d6f8c54a31552.png)
 
-**个人觉得这个方案应该是目前最好的解决方案了，不仅能加载 `tsconfig.json` 也可以显式地加载 `.d.ts` 声明文件，不会报错误。**
+**个人觉得这个方案应该是目前最好的解决方案了，虽然也是做了妥协，但是这可以让开发者很清楚地知道每次要扫哪些 `.d.ts`，
+不会遇到 "都配置了，但为什么没扫到" 的问题，也减少一些 "黑盒" 的坑。**
 
 在此方案基础上，我们可以加一个数组来维护项目里的 `.d.ts` 文件：
 
@@ -148,7 +151,6 @@ module.exports = {
 ```
 
 或者用 `fs` 模块来读取项目中 `./src/typings` 下的所有 `.d.ts` 声明文件，然后再放到命令中。
-
 
 ## 结语
 
