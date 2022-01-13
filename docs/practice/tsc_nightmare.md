@@ -97,8 +97,16 @@ interface Hello {
 ![](https://img-blog.csdnimg.cn/img_convert/44ec76dc2bb67f064fd94d86a5950071.png)
 
 这个问题在 [这个 Issue: Current version incorrectly analyzes @types/node](https://github.com/gustavopch/tsc-files/issues/20 "tsc-files 问题") 中又又又被疯狂讨论。
+里提到可以在 `typeRoots` 里写自定义类型声明文件的路径，但是这还是有问题，具体看下面这段：
 
 ![这两段是该 Issue 的讨论核心](https://img-blog.csdnimg.cn/img_convert/27e855e1349058d32f258d3447d733ff.png)
+
+> deanolium 的观点是：我们不能保证所有人都会用 `tsconfig.json` 里的 `typeRoots`，因为不是所有人都是配置大神。
+> 如果要在 `typeRoots` 里写自定义类型声明文件，那就要手动加上 `./node_modules/@types` 目录。
+> 而且如果大家不了解 `tsc-files` 的原理和实现，根本就不知道有这个坑。`tsc-files` 升级版本还需要依赖 `tsconfig.json` 是不合理的。
+
+> gustavopch（作者）的观点是：一方面使用 `tsc-files` 时不应该加上所有的文件，因为这就违反 `lint-staged` 使用的初衷了。
+> 另一方面也不能只在 `typeRoots` 里添加 `.d.ts` 文件的文件夹，因为有的人会把类型声明 `declare` 放在 `.ts` 那这样依然会出现找不到的情况。
 
 累了，毁灭吧。真该颁个矛盾代码奖给 `tsc`。
 
@@ -147,3 +155,5 @@ module.exports = {
 OK，终于大功告成了！这是我写的第二本小书，前一本是 [一天学习一个 npm 轮子](https://github.com/haixiangyan/one-day-one-npm-lib)，有兴趣可以看看，海怪又完成了一个小目标。
 
 **如果喜欢我的文章，也可以关注【写代码的海怪】，每周周五准时更新技术文章，不会太干也不会太水，纯属和朋友聊天。**
+
+<img src="https://img-blog.csdnimg.cn/6ce461cc24c44ca58c698722d6549fe5.gif#pic_center" alt="公众号" width="500" >
