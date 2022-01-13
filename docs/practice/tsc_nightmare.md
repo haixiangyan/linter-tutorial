@@ -56,17 +56,17 @@ interface Hello {
 
 然后我们 **只在 `messyTS.ts` 做了改动并提交，** 这条命令在 `lint-staged` 调用时会报下面的错误：
 
-![](https://files.mdnice.com/user/24913/9dbc7a42-bde4-4672-910a-1e2973b05545.png)
+![](https://img-blog.csdnimg.cn/img_convert/44ec76dc2bb67f064fd94d86a5950071.png)
 
 报错里说的是找不到 `Hello` 这个 interface。但是我们在写项目的时候，IDE 都会自动找到这个类型声明文件的呀，为什么这样就不行了呢？
 
 这是因为 IDE 会自动读取读 `tsconfig.json` 文件，而这里 `tsc` 命令没有读取 `tsconfig.json` 导致找不到 `Hello` 这个 interface。那么，很自然我们就会想是否可以 `tsc -p tsconfig.json --noEmit --skipLibCheck` 这样写呢？**抱歉，依然报错：**
 
-![](https://files.mdnice.com/user/24913/ed8e301c-5cf6-4c79-aaf5-10a2bb27623a.png)
+![](https://img-blog.csdnimg.cn/img_convert/00f9ad77cfc42931e38f1b4cdf4df040.png)
 
 **他奶奶地！为什么会报错？！**
 
-![](https://files.mdnice.com/user/24913/2d0e0fb2-9a4f-4a39-955b-77fa33150b7e.png)
+![](https://img-blog.csdnimg.cn/img_convert/48dbfd9b9eb7a53a5e06f042b1957a4e.png)
 
 这是因为 `tsc` 只有两种调用方式：
 
@@ -94,11 +94,11 @@ interface Hello {
 
 但是这又回到刚刚无法检测 `messyTypes.d.ts` 里 `Hello` interface 的问题，因为 `messyTypes.d.ts` 没有被放到 `files` 中：
 
-![](https://files.mdnice.com/user/24913/9dbc7a42-bde4-4672-910a-1e2973b05545.png)
+![](https://img-blog.csdnimg.cn/img_convert/44ec76dc2bb67f064fd94d86a5950071.png)
 
 这个问题在 [这个 Issue: Current version incorrectly analyzes @types/node](https://github.com/gustavopch/tsc-files/issues/20 "tsc-files 问题") 中又又又被疯狂讨论。
 
-![这两段是该 Issue 的讨论核心](https://files.mdnice.com/user/24913/ff67e608-a930-4da8-8c17-f71088f8ef18.png)
+![这两段是该 Issue 的讨论核心](https://img-blog.csdnimg.cn/img_convert/27e855e1349058d32f258d3447d733ff.png)
 
 累了，毁灭吧。真该颁个矛盾代码奖给 `tsc`。
 
@@ -108,7 +108,7 @@ interface Hello {
 
 最终，有一位大哥提供了一种思路：**把你的 `.d.ts` 放到路径里。**
 
-![](https://files.mdnice.com/user/24913/874f716f-0d43-410b-a141-0e14e0b84cbc.png)
+![](https://img-blog.csdnimg.cn/img_convert/e3538347b02c3f75b11d6f8c54a31552.png)
 
 **个人觉得这个方案应该是目前最好的解决方案了，不仅能加载 `tsconfig.json` 也可以显式地加载 `.d.ts` 声明文件，不会报错误。**
 

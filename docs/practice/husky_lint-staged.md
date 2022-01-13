@@ -12,7 +12,7 @@ Git 提供了很多 [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-G
 
 这些 Hooks 可以使得我们在操作 Git 的某些阶段做一些事情。而 [Husky](https://github.com/typicode/husky) 可以让我们在这些阶段里执行 Bash 指令。
 
-![](https://files.mdnice.com/user/24913/c8c88c27-e0bd-4eea-835f-75f26ddc1e56.jpg)
+![](https://img-blog.csdnimg.cn/img_convert/530378d1c586fad7f30d32524666bdce.png))
 
 **注意：Husky v4 和 v7 有非常大的差异，大家一定要注意甄别，最好直接看官网，这里使用最新版跟大家讲解。**
 
@@ -113,13 +113,13 @@ const hello: Hello = {
 };
 ```
 
-![](https://files.mdnice.com/user/24913/aa355bdf-d83b-4d2d-892d-9873168a5619.png)
+![](https://img-blog.csdnimg.cn/img_convert/7d72c9226cefcc187943450ee1eecb5a.png)
 
 **然后直接强行 `git add ./`, `git commit -m 'update'`，发现竟然可以直接通过而不报错！**
 
 **让我们再来思考一下 Linter 的作用是什么——它是一个用来提高代码质量的工具。它并不负责 TypeScript 的编译、类型检查。**
 
-![ESLint 和 TypeScript 依然是各论各的](https://files.mdnice.com/user/24913/246aa1e9-4cc0-4a37-a223-a405f95fe14c.jpg)
+![ESLint 和 TypeScript 依然是各论各的](https://img-blog.csdnimg.cn/img_convert/2953c1c33f616b157163b665020ed9b2.png)
 
 上面检查 TypeScript 的工作需要交由 `tsc` 来处理。有些同学估计都会抢答了：我知道我知道，直接在 `.lintstagedrc.js` 里添加一行 `tsc` 不就完事了？
 
@@ -141,4 +141,4 @@ module.exports = {
 }
 ```
 
-**年轻人，依然 Too young too naive！让我们走进最终章，看看 `tsc` 会给我们带来什么样的难题吧。**
+**年轻人，依然 Too young too naive！让我们走进下一章，看看 `tsc` 会给我们带来什么样的难题吧。**

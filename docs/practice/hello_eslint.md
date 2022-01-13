@@ -36,7 +36,7 @@ npm i -D eslint
 
 现在很多 IDE 的插件都和 ESLint 配合得非常好了：
 
-![](https://files.mdnice.com/user/24913/3e73dec1-bc70-4eac-9e33-88c2b1858772.png)
+![](https://img-blog.csdnimg.cn/img_convert/ee6a47549124b02e824de2f21f19e220.png)
 
 > **温馨提示：下面在配置 eslint 过程中，如果会出现 “他奶奶地，我明明配置好了，为什么不生效？”的问题，你可以多刷新一下 ESLint（Disable 再 Enable）来使其生效。**
 
@@ -50,7 +50,7 @@ module.exports = {};
 
 这里就体现了 ESLint 一个非常好的设计：**解耦**。如果里面什么都不配置，那么默认啥规都不会有，当然，也看不懂你的代码......
 
-![它看不懂 let 是啥](https://files.mdnice.com/user/24913/303174da-831d-40bc-86b6-2f49ab7490fa.png)
+![它看不懂 let 是啥](https://img-blog.csdnimg.cn/img_convert/bce4ec60aa18e2693e2b54ddad786a18.png)
 
 所以需要添加一个 `env` 来告诉 ESLint 现在你的代码要在什么场景下跑：
 
@@ -67,7 +67,7 @@ module.exports = {
 
 其它具体环境可以看官网的 [Environments 章节](https://eslint.org/docs/user-guide/configuring/language-options#specifying-environments)，里面介绍了 ESLint 在不同环境下的 key 是啥：
 
-![env 的配置](https://files.mdnice.com/user/24913/6119c10a-362f-4785-91b6-7dbe31d74043.png)
+![env 的配置](https://img-blog.csdnimg.cn/img_convert/6b3af992a47fa4d4d5de66ce11b40db5.png)
 
 其中的 `esxxxx` 环境会让 ESLint 除了添加预设好的 20xx 全局变量外，它还会自动设定 `ecmaVersion` parser 版本，让对应的 parser 来解析代码：
 
@@ -101,7 +101,7 @@ module.exports = {
 
 配置完后就可以看到 ESLint 的报错信息了：
 
-![](https://files.mdnice.com/user/24913/7ccc415c-30b2-45c9-8bfe-449372e4e86e.png)
+![](https://img-blog.csdnimg.cn/img_convert/b670837eb289248d9bd223dd0880b51c.png)
 
 可是，如果要我一个个规则来配，那不得配到天荒地老？
 
@@ -122,7 +122,7 @@ module.exports = {
 
 添加了这个规则集之后，你会发现 `.eslintrc.js` 的 `module.exports` 报错了：
 
-![](https://files.mdnice.com/user/24913/6bf929f9-47d7-4f20-a19b-2e6bbdcd8f13.png)
+![](https://img-blog.csdnimg.cn/img_convert/8b14ff6e8befc8804b8d847bac6048d8.png)
 
 这里的 `no-undef` 正是该规则集里的其中一条规则。ESLint 会默认处理所有的 `.js`，所以当处理自身 `.eslintrc.js` 配置文件时，它会按普通 JS 来阅读，无法看懂 `module` 从哪来的。
 
@@ -157,7 +157,7 @@ ESLint 的规则分为两类:
 
 让我们回到项目。加了这些规则集之后，你会发现 **ESLint 报错的规则大多数是属于无法自动修复的代码质量规则**，比如这里的 `no-unused-vars`：
 
-![](https://files.mdnice.com/user/24913/5ff85953-62c8-4b3b-9404-f7126b043447.png)
+![](https://img-blog.csdnimg.cn/img_convert/b49831b8fd6b52d3c8aa137d95834bf0.png)
 
 ESLint 挠破头皮也猜不出来你写个没有用到的变量是为了啥，所以只能人工手动去修。
 

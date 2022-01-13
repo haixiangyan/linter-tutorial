@@ -4,7 +4,7 @@
 
 使用的时候基本上就是随便找一篇 ESLint 相关的文章，也不管这些配置是啥意思，把 `.eslintrc.js` 文件一抄就算是 “给项目加上代码校验” 了。
 
-![](https://files.mdnice.com/user/24913/4139800f-b7ad-4c52-8df2-3695147ce12d.png)
+![](https://img-blog.csdnimg.cn/img_convert/9bb125f79e4ac495bc9f71007af2481e.png)
 
 那今天就跟大家聊聊这些 linter, prettier 的发展史和它们之间的关系，以及它们提供了哪些功能。
 
@@ -16,17 +16,17 @@
 
 如果你写一个正则表达式，在回调里查到有人写了个 "Fuck" 然后报错，也可以成为一个 Linter。只是仅用正则来处理代码怕是要写到头都秃了。
 
-![](https://files.mdnice.com/user/24913/e1135ed7-cfc2-4e1c-80bb-6b678f2f5964.jpg)
+![](https://img-blog.csdnimg.cn/img_convert/0b56d077e4a6de1e357ad671624c74db.png)
 
 ## JSLint
 
 Linter 并不是一个新鲜的东西，早在 2002 年，Douglas Crockford 就为 JavaScript 写了第一个 Linter 工具：**JSLint**。
 
-![Douglas Crockford](https://files.mdnice.com/user/24913/db4a6829-d61d-4f8e-ac95-dad3f26ce466.jpg)
+![Douglas Crockford](https://img-blog.csdnimg.cn/img_convert/51a935a2998a7bfb98533c913a09db78.png)
 
 你现在也可以在 https://www.jslint.com 这个网站上粘贴你的 JavaScript 代码来检查有没有问题。
 
-![jslint.com](https://files.mdnice.com/user/24913/70025012-7f1c-4a39-bdb0-1918b53ecb92.png)
+![jslint.com](https://img-blog.csdnimg.cn/img_convert/cd5d038fe5d6acdaee80fef612d92b7e.png)
 
 JSLint 的优点就是 **开箱即用**，不需要配置太多多东西，相当于拎包入住。但优点也是缺点，就是 **规则太严格，完全不可扩展和自定义配置，连配置文件都没有。**
 
@@ -36,7 +36,7 @@ JSLint 的优点就是 **开箱即用**，不需要配置太多多东西，相�
 
 既然 “爱用用，不用自己造” 是吧？2010 的，Anton Kovalyov 跟其它人就 fork 了 JSLint 然后造了 **JSHint**。
 
-![jshint.com](https://files.mdnice.com/user/24913/119565ab-f4c3-45b0-ab9b-649825d61d7b.png)
+![jshint.com](https://img-blog.csdnimg.cn/img_convert/34133dd3f75004d51c57a364fa60153e.png)
 
 这个工具与 JSLint 的思路正好相反，它的默认规则非常松散，自由度非常高了。但是也同样带来了问题：**你需要非常了解这些规则才能配出一个好用的规则表。因为规则太不严格，过于自由，所以单纯靠默认的规则跟没有配置 Linter 一样。**
 
@@ -46,7 +46,7 @@ JSLint 的优点就是 **开箱即用**，不需要配置太多多东西，相�
 
 它有超过 90 条规则，你也能自己创建规则，不过这些规则主要是和代码风格、代码格式化有关，它不会报任何和 JS 代码质量相关的错误。
 
-![https://jscs-dev.github.io/](https://files.mdnice.com/user/24913/ae6405e8-c65d-475b-a66c-5b4b50a795d0.png)
+![https://jscs-dev.github.io/](https://img-blog.csdnimg.cn/img_convert/0fec61f5076436c71990091fe6737f5d.png)
 
 当然这东西现在也凉凉了。
 
@@ -54,7 +54,7 @@ JSLint 的优点就是 **开箱即用**，不需要配置太多多东西，相�
 
 中间还出现了一个 [EditorConfig](https://editorconfig.org/blog/) 的工具，它的目的是为了规范不同编辑器下的格式化输出。
 
-![](https://files.mdnice.com/user/24913/07574440-018b-4ca3-ba6f-f8bec1992147.png)
+![](https://img-blog.csdnimg.cn/img_convert/408b56f04037a428f721cf16346e258d.png)
 
 然而，如今随着 Prettier 这个更强大的格式化工具慢慢迭代更新，EditorConfig 也逐渐退出前端舞台了。**一般情况下如果配置了 ESLint + Prettier，EditorConfig 则不再需要了，因为目前 IDE 都能直接读取 Prettier 的配置来格式化代码。**
 
@@ -66,7 +66,7 @@ JSLint 的优点就是 **开箱即用**，不需要配置太多多东西，相�
 
 说到 ESLint 就要说一说 ES6 了。在 2014 年的时候，JavaScript 有一个非常大的更新：ES6，也叫做 ES2015。这个更新引入了很多的 API、新语法和新功能。详情可看阮一峰的 [《ES6标准入门》](https://es6.ruanyifeng.com/)。
 
-![《ES6标准入门》](https://files.mdnice.com/user/24913/bfc7e81c-737a-4eb8-be02-357a90167db0.jpg)
+![《ES6标准入门》](https://img-blog.csdnimg.cn/img_convert/3b2bf3822e337a9e4e9fc0b1d8dcd847.png)
 
 ES6 上线了之后，JSHint 受不了直接投降了，因为它不支持这些 ES6 新语法。而 ESLint 正好异军突起，马上用 Esprima （一个高性能的 ECMAScript parser）支持所有 ES6 新语法，并对新语法做好了校验。
 
@@ -84,7 +84,7 @@ ESLint 把这里的 “错误” 分为两类：
 
 代码质量非常容易理解，比如 [eqeqeq](https://eslint.org/docs/rules/eqeqeq) 这个把双等改三等的规则： `==` 改成 `===`，这样的规则可以有效地避免一些 Magic Code Bug。
 
-![](https://files.mdnice.com/user/24913/c1e22f68-9191-4c06-b6ca-865a13ea6946.jpg)
+![](https://img-blog.csdnimg.cn/img_convert/e89748de3127c64f3dafbf7f75daaebd.png)
 
 代码风格也是很容易理解，比如不喜欢加分号就加一条规则 [semi](https://eslint.org/docs/2.0.0/rules/semi) 规则：
 
@@ -142,7 +142,7 @@ ESLint 根本无法自动修复这类的代码，因为 `xxx` 既可能是全局
 
 相信有的同学会说：不对呀，我在 IDE 经常看到 `ESLint: Fix xxx`：
 
-![](https://files.mdnice.com/user/24913/5f373db6-8119-4437-bdf2-7d2d174dd3e8.png)
+![](https://img-blog.csdnimg.cn/img_convert/91cefcf3e79815dc5be0688c2ad2a921.png)
 
 这里的 `ESLint: Fix xxx` 其实是用了 [Prettier](https://prettier.io/) 来做代码风格修复的。下面就来聊聊 [Prettier](https://prettier.io/) 这个工具。
 
@@ -156,21 +156,21 @@ Prettier 是一个代码风格的修正工具。
 
 这就导致团队里总会出现因为一两个符号而争吵，从而引发内部矛盾，从而大打出手，进而各起山头，争风吃醋，团队解散，公司破产（咳咳）。
 
-![](https://files.mdnice.com/user/24913/d626d351-e1d6-4ebe-b872-748008523bf2.png)
+![](https://img-blog.csdnimg.cn/img_convert/b2553e160ecb3e27dfc54fc649db07a7.png)
 
 前端程序员就会想：是否有一种非常标准且又好看的代码风格来停止这场代码风格的圣战呢？
 
 **Prettier 这时就出来了：我格式化后的代码是最好看的，谁同意，谁反对？**
 
-![Prettier](https://files.mdnice.com/user/24913/df84674c-5480-4b38-b71b-3afef1c3037b.jpg)
+![Prettier](https://img-blog.csdnimg.cn/img_convert/878a10dc7d59d35a04f57d01ebd3d002.png)
 
 **“我反对！凭什么你说最好看就是最好看？”**
 
-![某人](https://files.mdnice.com/user/24913/052ee691-a73d-4398-a805-97b48228c7d1.jpg)
+![某人](https://img-blog.csdnimg.cn/img_convert/d0725fa1b8957f89d9f1d65ec85c8c7d.png)
 
 **Pia！！！！**
 
-![](https://files.mdnice.com/user/24913/13be86c9-df98-4c8e-b27d-0885167e4b5a.png)
+![](https://img-blog.csdnimg.cn/img_convert/587d8b0aba7b078df7c174a3a0604d1e.png)
 
 Prettier 的作者 James 在这篇论文基础上再完善了一些代码风格规则，最终成为了 Prettier 格式化代码的最终方案。比如像下面的链式调用，Prettier 输出的就比原来论文描述的要好看一些：
 
@@ -199,11 +199,11 @@ hello()
 
 下面这图从左到右就是 Prettier 格式化代码的过程：`乱代码 -> AST -> 最终格式化后的结果`。
 
-![乱代码-AST-格式化的代码](https://files.mdnice.com/user/24913/c582efd4-70fe-405c-8f6d-995386e790e0.png)
+![乱代码-AST-格式化的代码](https://img-blog.csdnimg.cn/img_convert/de40538aa31b9d38928d7dff2532d388.png)
 
 从 Prettier 的工作原理也可以看出 Prettier 其实不仅仅可以为 JS 服务，还可以为其它语言/文件服务：
 
-![](https://files.mdnice.com/user/24913/42fb5c0c-45be-4ed5-8748-38baf6759a9b.png)
+![](https://img-blog.csdnimg.cn/img_convert/52bd911d0d2a06f549d1971a045d6ed6.png)
 
 
 ### 设计理念
@@ -212,11 +212,11 @@ Prettier 的官方文档里一直在强调自己是一个 Opinionated 的工具�
 
 其实不仅 Prettier，我们日常使用的一些库和框架都会标明自己是 opinionated 还是 unopinionated：
 
-![Express 是 unopinionated](https://files.mdnice.com/user/24913/01ab0f5f-3942-46c7-aaf4-658488275a4e.png)
+![Express 是 unopinionated](https://img-blog.csdnimg.cn/img_convert/7806c2aa7e230ac0f85f4fbbed67acc3.png)
 
-![Vue.js 是 opinionated](https://files.mdnice.com/user/24913/c42a4b86-90bb-47f0-8a87-f42f5a91ab4f.png)
+![Vue.js 是 opinionated](https://img-blog.csdnimg.cn/img_convert/aa77620cc27241f964442972fbcfc3a1.png)
 
-![Spring Boot 是 opinionated](https://files.mdnice.com/user/24913/61137c9c-7548-4069-b735-efb39d428370.png)
+![Spring Boot 是 opinionated](https://img-blog.csdnimg.cn/img_convert/a749461fe55a90c34731232aa97fb72e.png)
 
 按照框架/库的 opinionated 还是 unopinionated 思路来使用它们非常重要。
 
@@ -255,7 +255,7 @@ TypeScript 无需多言，它有着非常强大的类型系统。但是这就带
 
 **最终，在 2019 年 TSLint 宣告不再维护，以后就是 ESLint 的天下了。**
 
-![TSLint 在 2019 年就凉凉了](https://files.mdnice.com/user/24913/1788f6e6-d496-43cf-af34-151bcf8c3a8b.png)
+![TSLint 在 2019 年就凉凉了](https://img-blog.csdnimg.cn/img_convert/af8809a820ce5552e13a7c87258bc127.png)
 
 TSLint 的静态分析和类型检查的功能则变成两个 NPM 包：[@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser), [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)，前者主要处理 `.ts` 文件，解析 TS 语法，后者则是提供 TS 的相关 lint 规则以及类型检查。在 Lint `.ts` 时，需要在 `.eslintrc.js` 里配置这两个包的信息。
 
@@ -271,17 +271,17 @@ TSLint 的静态分析和类型检查的功能则变成两个 NPM 包：[@typesc
 
 如今已经来到 2022 年了，无论哪家的 IDE 还是编辑器都已经能够很好的支持 Linter 工具了。写代码时都能马上提示：
 
-![](https://files.mdnice.com/user/24913/cf2738f7-edf6-45cc-8a41-207d2f6a56da.png)
+![](https://img-blog.csdnimg.cn/img_convert/3cfc8e11e4f7ba4fbe16761d2b6a61c0.png)
 
 除了直接快捷键修复，也能在保存的时候自动运行 `eslint --fix`。
 
 可万一有些人不开 ESLint，或者忘记 ESLint 修复时，那些没有被 fix 过的代码也有可能会入库。所以我们希望在提交代码前能运行 `eslint --fix` 来自动修复有问题的代码。
 
-![](https://files.mdnice.com/user/24913/0156e4a3-1eb9-4e24-8083-9666fb9f9521.png)
+![](https://img-blog.csdnimg.cn/img_convert/5dc96a823a2608555d7695981a921294.png)
 
 [husky](https://github.com/typicode/husky) 就是用来解决这样问题的一个工具，它在提交的时候执行一些 bash 命令。
 
-![你在看什么](https://files.mdnice.com/user/24913/2b1a2622-e484-4f11-9147-b33f1f09c8c8.jpg)
+![你在看什么](https://img-blog.csdnimg.cn/img_convert/ee5be981aa3cd2afa9c1fa23b9769bd8.png)
 
 比如，我们可以在每次提交时都 fix `/src` 下的所有代码。
 

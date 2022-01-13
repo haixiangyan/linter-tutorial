@@ -12,7 +12,7 @@
 
 再考考你：如果想用 ESLint 和 TypeScript 结合，要用到哪些包呢？`@typescript-eslint/parser`, `@typescript-eslint/eslint-plugin`, `tslint-plugin-prettier`, `tslint-config-prettier`, `prettier-tslint` 傻傻分不清？
 
-![](https://files.mdnice.com/user/24913/c0b0c53d-e89a-4d8f-8cbc-9307d8101917.jpg)
+![](https://img-blog.csdnimg.cn/img_convert/b24237fe35bc194ff4bd62e45cb8ef2f.png)
 
 是不是有种“玩排列组合”的感觉？在没深入了解这些工具之前，我也很蒙逼。网上的资源也是东一块西一块的，要不只讲 Prettier，要不只讲 ESLint，
 要不都不讲直接丢一个配置。 实把这些工具单独拆开来看，它们都是很简单的工具。**但是由于前端更新速度太快了，导致出现了很多相似的轮子，比如 `tslint` 和 `eslint`，
@@ -44,4 +44,4 @@
 **原创不易，如果觉得本教程对你有帮助，希望大家多多 Star 和 Fork。
 同时我也是个新人公众号号主，如果喜欢我写的内容，也欢迎关注公众号【写代码的海怪】。**
 
-[](https://mmbiz.qpic.cn/mmbiz_jpg/oCmxRMwTTv1qQW2YWL6uJmvcRv5ApXowj3gQt5JLss4edCx4ctduNyrxutl6WEgWQaoMeRcMq0PnyjguY4ws7Q/0?wx_fmt=jpeg)
+<img src="https://img-blog.csdnimg.cn/6ce461cc24c44ca58c698722d6549fe5.gif#pic_center" alt="公众号" width="500" >

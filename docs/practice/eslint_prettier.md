@@ -57,13 +57,13 @@ npx prettier --write messyJS.js
 
 幸好如今 IDE 和一些代码编辑器已经对 Prettier 做了非常好的集成，比如 WebStorm 里：
 
-![WebStorm 配置](https://files.mdnice.com/user/24913/4e29a40e-2da4-4633-bfd8-d380b674c9f3.png)
+![WebStorm 配置](https://img-blog.csdnimg.cn/img_convert/3232ecea7c49647d1dede6b1231c0e3f.png))
 
 我习惯是不打开【保存时自动格式化】，有点耗内存。另一个选项则是 IDE 会使用 Prettier 的配置来格式化，如果不开启这个选项，那么 IDE 会按自己的风格来格式化，这里推荐开启这个选项。
 
 说到这里，相信有的同学已经按耐不住了：IDE 格式化是按 Prettier 配置来了，但是我以前项目经常见的 `ESLint: Fix xxx` 提示咋不出现呢？
 
-![WebStorm 的提示](https://files.mdnice.com/user/24913/2933ec91-f696-4dab-ba7c-bf16c7912e5f.png)
+![WebStorm 的提示](https://img-blog.csdnimg.cn/img_convert/0abff602219f6c671de9911a79060ca5.png)
 
 这个提示是 ESLint 报的提示，下面我们来讲怎么配置 ESLint x Prettier。
 
@@ -106,7 +106,7 @@ module.exports = {
 
 加完配置后就会发现代码已经有对应的自动修复提示了：
 
-![](https://files.mdnice.com/user/24913/7c29c1bf-aa7e-4cfe-a105-288dd31ef5cd.png)
+![](https://img-blog.csdnimg.cn/img_convert/edc92dd1afa2e8daf43fabc08c7876a2.png)
 
 ## 解决规则冲突
 
