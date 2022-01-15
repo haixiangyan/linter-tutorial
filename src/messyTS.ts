@@ -50,6 +50,7 @@ const human: Human = {
 };
 
 console.log("hello", 1, 2);
+console.log("world", 1, 2);
 
 const za = 1;
 

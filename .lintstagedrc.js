@@ -1,22 +1,21 @@
-const declarationFiles = [
-  './src/messyTypesInfo.d.ts'
-]
+const declarationFiles = ["./src/messyTypesInfo.d.ts"];
 
 module.exports = {
-  '**/*.{ts,tsx}': [
+  "**/*.{ts,tsx}": [
     (filenames) => {
       const files = [...filenames, ...declarationFiles];
-      return `tsc ${files.join(' ')} --noEmit --skipLibCheck`;
+      return `tsc ${files.join(" ")} --noEmit --skipLibCheck`;
     },
-    "eslint --cache --fix",
+    "prettier --write",
+    `eslint --cache --fix --rule 'prettier/prettier: off'`,
   ],
-  '**/*.{js,jsx}': [
-    "eslint --cache --fix",
+  "**/*.{js,jsx}": [
+    "prettier --write",
+    `eslint --cache --fix --rule 'prettier/prettier: off'`,
   ],
   "**/*.vue": [
-    "eslint --cache --fix",
+    "prettier --write",
+    `eslint --cache --fix --rule 'prettier/prettier: off'`,
   ],
-  "**/*.{css,less}": [
-    "stylelint --cache --fix",
-  ]
-}
+  "**/*.{css,less}": ["stylelint --cache --fix"],
+};
