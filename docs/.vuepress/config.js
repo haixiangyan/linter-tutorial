@@ -1,8 +1,19 @@
 module.exports = {
   base: "/linter-guide/",
-  title: "前端代码风格上手教程",
+  title: "Linter上手完全指南",
   description:
-    "大多数人都知道代码风格以及 ESLint 和 Prettier，但是你真了解它们么？本教程将从历史演进以及上手实战来聊聊 Linter 的世界。",
+    "你真了解 Liner 么？本教程将从历史演进以及上手实战来聊聊 Linter 的世界。",
+  head: [
+    [
+      "meta",
+      {
+        name: "keywords",
+        content:
+          "eslint, prettier, linter, lint-staged, 前端, 代码风格, 上手指南",
+      },
+    ],
+    ["meta", { name: "author", content: "海怪" }],
+  ],
   plugins: [
     "@vuepress/medium-zoom",
     "@vuepress/back-to-top",
