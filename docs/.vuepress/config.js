@@ -33,7 +33,10 @@ module.exports = {
       {
         title: "最后",
         collapsable: false,
-        children: ["/final/project", "/final/last"],
+        children: [
+          "/final/project",
+          // "/final/last"
+        ],
       },
     ],
   },
