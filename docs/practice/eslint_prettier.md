@@ -57,7 +57,7 @@ npx prettier --write messyJS.js
 
 幸好如今 IDE 和一些代码编辑器已经对 Prettier 做了非常好的集成，比如 WebStorm 里：
 
-![WebStorm 配置](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/200e6acb3fce4efba1d482885ac35b3e~tplv-k3u1fbpfcp-zoom-1.image))
+![WebStorm 配置](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/200e6acb3fce4efba1d482885ac35b3e~tplv-k3u1fbpfcp-zoom-1.image)
 
 我习惯是不打开【保存时自动格式化】，有点耗内存。另一个选项则是 IDE 会使用 Prettier 的配置来格式化，如果不开启这个选项，那么 IDE 会按自己的风格来格式化，这里推荐开启这个选项。
 
@@ -143,7 +143,12 @@ no-empty-character-class      |     0.110 |     0.1%
 所以一遇到这种性能问题，也无从查起。 因此我也翻遍了所有的资料，只在 `eslint-plugin-prettier` 这个项目的 [这个 Issue](https://github.com/prettier/eslint-plugin-prettier/issues/304)
 以及 [这个 Issue](https://github.com/prettier/eslint-plugin-prettier/issues/445) 看到相关的讨论。
 
-不过这个讨论也没有给出太多的解决方法，只说了一个现象：**`eslint-plugin-prettier` 就是罪魁祸首，当 Prettier 集成到 ESLint 之后，ESLint 用 Prettier 规则来格式化代码就会很慢，但是将它两分开就会很快。** 比如：
+不过这个讨论也没有给出太多的解决方法，只说了一个现象：**`eslint-plugin-prettier` 就是罪魁祸首，当 Prettier 集成到 ESLint 之后，ESLint 用 Prettier 规则来格式化代码就会很慢，但是将它两分开就会很快。** 
+
+> Same problem here. I'm removing this rule from my eslint config and running prettier as a separate step (it is drastically faster)
+> -- [引用](https://github.com/prettier/eslint-plugin-prettier/issues/304#issuecomment-743440481)
+
+比如：
 
 ```shell
 prettier xxx.js --write
