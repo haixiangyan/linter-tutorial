@@ -45,6 +45,33 @@
 可是后来随着配置的东西越来越多，踩的坑也变得越来越多，文章的字数快超过 6000 字了，对读者来说不是一个很好的阅读体验，因此拆分了章节，
 最后有了这份教程。
 
+## 参考
+
+下面列举我写这篇教程所看的一些参考资料，如果大家有兴趣也可以 **按下面给的顺序** 进行阅读：
+
+* [Prettier看这一篇就行了](https://zhuanlan.zhihu.com/p/81764012) 陈龙大佬的 Prettier 文章，写的非常清楚
+* [Prettier 文档](https://prettier.io/docs/en/index.html) 接下来再看 Prettier 文档，结合陈龙大佬的文章会有更高纬度的视角
+* [ESLint 文档](https://eslint.org/) ESLint 文档非常简陋，像说明书一样，很无聊，但是也要懂一点要怎么配置
+* [TypeScript ESLint 文档](https://typescript-eslint.io/) 这个文档远比 ESLint 文档要好，里面还说了一些实践思路，教会你 Config 和 Plugin 都是做啥用的
+* [StyleLint 文档](https://stylelint.io/) 经过上面文档的洗礼再看 StyleLint 会觉得很简单
+* [Husky Github](https://github.com/typicode/husky) 知道 Husky 是怎么在 Git Hooks 执行 Bash 的
+* [lint-staged Github](https://github.com/okonet/lint-staged) 知道 Husky x lint-staged 用法
+
+下面再列举一些我搜了很多次的问题：
+
+### LintStaged x TypeScript
+
+* [lint-staged ignores tsconfig.json when it called through husky hooks](https://github.com/okonet/lint-staged/issues/825)
+* [Build typescript on commit](https://github.com/okonet/lint-staged/issues/468)
+* [How to lint for Typescript compilation issues?](https://stackoverflow.com/questions/51428789/how-to-lint-for-typescript-compilation-issues)
+* [Current version incorrectly analyzes @types/node](https://github.com/gustavopch/tsc-files/issues/20)
+
+### ESLint
+
+* [eslint-plugin-prettier is very slow](https://github.com/prettier/eslint-plugin-prettier/issues/304)
+* [Very slow performance](https://github.com/prettier/eslint-plugin-prettier/issues/445)
+* [ESLint not reporting TypeScript compiler type checking errors](https://stackoverflow.com/questions/60514929/eslint-not-reporting-typescript-compiler-type-checking-errors)
+
 ## 支持
 
 **原创不易，如果觉得本教程对你有帮助，希望大家多多 Star 和 Fork。
