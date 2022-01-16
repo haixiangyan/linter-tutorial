@@ -72,6 +72,7 @@
 * [eslint-plugin-prettier is very slow](https://github.com/prettier/eslint-plugin-prettier/issues/304)
 * [Very slow performance](https://github.com/prettier/eslint-plugin-prettier/issues/445)
 * [ESLint not reporting TypeScript compiler type checking errors](https://stackoverflow.com/questions/60514929/eslint-not-reporting-typescript-compiler-type-checking-errors)
+* [No actual type checking?](https://github.com/typescript-eslint/typescript-eslint/issues/1037)
 
 ## 支持
 

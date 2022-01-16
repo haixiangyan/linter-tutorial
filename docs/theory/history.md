@@ -4,17 +4,25 @@
 
 ## 静态代码分析
 
-我们一直所说的 Linter 其实是 **静态代码分析器。它的主要工作就是阅读你的代码，通过一些校验规则来提高代码质量。**
+早在 1978 年，Stephen C. Johnson 在 Debug 自己的 C 语言项目时，突然想到为什么不做一个工具来提示自己写的代码哪里有问题呢？
+这个工具也被称为 Linter。
 
-它也是不是语法校验器，更像是找到有问题的代码，会跟你说：**“N行M列这里是屎山，里面有可能有 Bug，你自己小心点”。**
+Linter 本意指的是衣服上多出来的小球、绒毛和纤维等，如果你刚把晾晒好的衣服收下来就会发现这些小玩意。以前如果想把这些多出来的"残渣"去掉，
+最简单的方法就是找一个单面胶粘一下再撕开，后来有的人发明了这个神器，一滚就能清除掉：
 
-如果你写一个正则表达式，在回调里查到有人写了个 "Fuck" 然后报错，也可以成为一个 Linter。只是仅用正则来处理代码怕是要写到头都秃了。
+![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49175e551a074c648f7faa0ad1b96675~tplv-k3u1fbpfcp-watermark.image?)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8910554b870e4679ac1818babc9ed20d~tplv-k3u1fbpfcp-zoom-1.image)
+这就是 Linter 的由来，不过区别是神器重点在 "清除"，而 Linter 重点在 "上报错误"。
+
+Linter 想要提示错误，那首先就得阅读代码，这也是为什么 Linter 也被称为 **静态代码分析的工具**。阅读完之后，
+再加上我们人为自定义好的一些规则，那么 Linter 就拥有了提示错误的能力了。
+
+注意：这里的错误是广义上的错误，比如语法错误、潜在 Bug、代码风格等，这些上报的错误是需要人设定规则的，如果你不设定也是可以的，
+比如你也可以做一个只检查代码风格的 Linter。所以说，Linter 并不等于 Compiler。
 
 ## JSLint
 
-Linter 并不是一个新鲜的东西，早在 2002 年，Douglas Crockford 就为 JavaScript 写了第一个 Linter 工具：**JSLint**。
+在 2002 年，Douglas Crockford 就为 JavaScript 写了第一个 Linter 工具：**JSLint**。
 
 ![Douglas Crockford](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/edfe25ddefae4b2f831e89ca13af1a5d~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -117,24 +125,12 @@ const foo = {
 ```
 
 它们都没超过 max-len，都能 pass。可是这两种写法到底哪个好看一点，ESLint 是无法界定的。
+从这也可以看出 ESLint 的工作重点：**只管报错，遇到稍微要动点脑子的修复工作，比如怎么修复好看之类的就不管了，还是开发者自己决定吧。**。
 
-### Linter 本职工作
+如果只是代码质量方面的，比如尽量用 `const` 和 `let` 代替 `var`，大多数程序员都是愿意接受去改的。但在代码风格方面，就百家齐放，百家争鸣了。
+ESLint 对一些高级点的代码风格规则就不自动修复了，导致没有一个标准的基线可以参考，程序员时不时就 "要不要加分号" 问题大打出手。
 
-如果你一直纠结为什么 ESLint 无法自动修复这个问题，那不妨再想想最初 JSLint 诞生的原因是什么——**通过规则来提高代码质量！**
-
-没错，Linter 的本职工作其实用一些语法规则来约束开发者去写高质量代码，而非约束代码风格。虽然 ESLint 也提供了一些代码风格相关规则，比如 “写不写分号”，“每行不能超过多少字符” 等，但是它依然不是一个代码风格修正器。
-
-**注意：我这里说的是修正器，不是检查器。Linter 的工作更多像检查器，主要功能是告诉你哪行哪列写得太拉了，大部分是需要手动去修正的，能自动修正的地方非常少。**
-
-举个 [no-var](https://eslint.org/docs/rules/no-var) 的规则：
-
-```js
-var xxx = 1;
-```
-
-ESLint 根本无法自动修复这类的代码，因为 `xxx` 既可能是全局变量，也可能是局部变量，自动修复成 `const` 或者 `let` 或者 `window.xxx` 都可能引入 Bug，所以只能让开发者自己自己修正。
-
-相信有的同学会说：不对呀，我在 IDE 经常看到 `ESLint: Fix xxx`：
+这时，有的同学会说：不对呀，我在 IDE 里经常看到 `ESLint: Fix xxx` 来自动修复的呀，怎么能说 ESLint 撒手不管了呢：
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d365b9a43077497ba223cf407f8200ef~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -242,13 +238,10 @@ Prettier 属于 Opinionated 哲学，这意味着它提供的代码风格已经�
 
 ## TSLint
 
-好了我们再说回 Linter。2012 微软公布了第一版的 TypeScript。
+好了我们再说回 Linter。2012 微软公布了第一版的 TypeScript，随之而来的还有一个 TSLint 的 Linter。
 
-TypeScript 无需多言，它有着非常强大的类型系统。但是这就带来了一个问题：ESLint 的底层是解析 ECMAScript 代码的，也即只能看 `.js` 文件，它看不懂 `.ts` 文件。
-
-所以微软就整了一个 TSLint 出来，说我们自己检查自己的语法总行了吧。
-
-在那段时间里，TSLint 是 TypeScript 的标准 Linter 工具，ESLint 则为 JavaScript 标准 Linter。它们各有自身特色：**ESLint 有 TSLint 所有没有的一些语法特性支持，而 TSLint 可以对代码进行静态分析和类型检查。**
+在那段时间里，TSLint 是 TypeScript 的标准 Linter 工具，ESLint 则为 JavaScript 标准 Linter。它们各有自身特色：
+**ESLint 有 TSLint 所有没有的一些语法特性支持，而 TSLint 可以对代码进行静态分析和类型检查。**
 
 可是，一份代码还要两个 Linter 并行检查属实有点让人不爽。TSLint 也经常和 ESLint 的人探讨应该用哪个作为主力 Linter。TS 的社区也有很多声音希望优先满足 JSer 的需求，毕竟 TS 是 JS 的超集嘛，还是以 ESLint 为主。
 
