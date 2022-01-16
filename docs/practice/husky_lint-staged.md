@@ -98,7 +98,7 @@ npx lint-staged
 
 ## LintStaged x TypeScript
 
-哼？你以为到这就完了么？Too yong too simple！如果你在 `.d.ts` 定义一个 `interface`：
+你以为到这就完了么？Too yong too simple！如果你在 `.d.ts` 定义一个 `interface`：
 
 ```ts
 type Hello = {
@@ -122,11 +122,17 @@ const hello: Hello = {
 
 **然后直接强行 `git add ./`, `git commit -m 'update'`，发现竟然可以直接通过而不报错！**
 
-**让我们再来思考一下 Linter 的作用是什么——它是一个用来提高代码质量的工具。它并不负责 TypeScript 的编译、类型检查。**
+不报错的原因是因为：**ESLint 本身就不会做类型校验（Type Check）。** 理由如下（具体可见 [这个 Issue](https://github.com/typescript-eslint/typescript-eslint/issues/1037#issuecomment-537608227)）：
+
+* ESLint 只是作为 TypeScript Type Checking 的补充，只做 Type Checking 之外的一些工作
+* 大多数人用 TS 的 Parser，但是不用 `parserOptions.project`，所以这种情况下也不能 Type Check
+* 和 TypeScript 相对完整的错误校验上报体系相比，ESLint 只完成了一半的工作
+
+总的来说就是你用 `tsc --noEmit` 就能做类型检查，ESLint 就不用再重复造一次轮子了，再看看隔离 Babel 大哥，它就是转译器，它也不做 TS 的语法校验呀，还是一个工作做一件事的好。
 
 ![ESLint 和 TypeScript 依然是各论各的](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4cde3523baf49e5a5260d18f714d585~tplv-k3u1fbpfcp-zoom-1.image)
 
-上面检查 TypeScript 的工作需要交由 `tsc` 来处理。有些同学估计都会抢答了：我知道我知道，直接在 `.lintstagedrc.js` 里添加一行 `tsc` 不就完事了？
+有些同学估计都会抢答了：我知道我知道，直接在 `.lintstagedrc.js` 里添加一行 `tsc` 不就完事了？
 
 ```js
 module.exports = {
