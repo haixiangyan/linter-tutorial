@@ -68,6 +68,7 @@
 
 ### ESLint
 
+* ["parserOptions.project" has been set for @typescript-eslint/parser](https://stackoverflow.com/questions/58510287/parseroptions-project-has-been-set-for-typescript-eslint-parser)
 * [eslint-plugin-prettier is very slow](https://github.com/prettier/eslint-plugin-prettier/issues/304)
 * [Very slow performance](https://github.com/prettier/eslint-plugin-prettier/issues/445)
 * [ESLint not reporting TypeScript compiler type checking errors](https://stackoverflow.com/questions/60514929/eslint-not-reporting-typescript-compiler-type-checking-errors)
