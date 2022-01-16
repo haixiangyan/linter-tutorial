@@ -61,7 +61,7 @@ npx tsc --init
 
 加完这些配置之后会发现，ESLint 并不认识 `.ts` 文件：
 
-![](https://img-blog.csdnimg.cn/img_convert/49ec0955912dea7aca2aca38fb69c534.png)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ea0b7361d0f4623b384d0d9cc1dead7~tplv-k3u1fbpfcp-zoom-1.image)
 
 受前面 `env` 配置的影响，有的同学可能会想：是不是在 `env` 里加个 `typescript: true` 就可以了呢？
 
@@ -91,7 +91,7 @@ module.exports = {
 
 配置完了之后，你会发现在 `.eslintrc.js` 会报一个这样的错误：
 
-![](https://img-blog.csdnimg.cn/img_convert/4c771d39c5be6aae2a801ce806ff0269.png)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04ac1b2748904510a24292758661499b~tplv-k3u1fbpfcp-zoom-1.image)
 
 ```
 Parsing error: "parserOptions.project" has been set for @typescript-eslint/parser.

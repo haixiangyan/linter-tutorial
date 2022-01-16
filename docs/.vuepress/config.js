@@ -27,7 +27,7 @@ module.exports = {
           "/practice/eslint_plugins",
           "/practice/stylelint",
           "/practice/husky_lint-staged",
-          "/practice/tsc_nightmare",
+          "/practice/lint-staged_tsc",
         ],
       },
       {

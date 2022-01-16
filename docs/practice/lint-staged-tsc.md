@@ -60,18 +60,17 @@ interface Hello {
 
 然后我们 **只在 `messyTS.ts` 做了改动并提交，** 这条命令在 `lint-staged` 调用时会报下面的错误：
 
-![](https://img-blog.csdnimg.cn/img_convert/44ec76dc2bb67f064fd94d86a5950071.png)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1c0fd9f450e45fc8e24572506ef05f3~tplv-k3u1fbpfcp-zoom-1.image)
 
 报错里说的是找不到 `Hello` 这个 interface。但是我们在写项目的时候，IDE 都会自动找到这个类型声明文件的呀，为什么这样就不行了呢？
 
 这是因为 IDE 会自动读取读 `tsconfig.json` 文件，而这里 `tsc` 命令没有读取 `tsconfig.json` 导致找不到 `Hello` 这个 interface。那么，很自然我们就会想是否可以 `tsc -p tsconfig.json --noEmit --skipLibCheck` 这样写呢？**抱歉，依然报错：**
 
-![](https://img-blog.csdnimg.cn/img_convert/00f9ad77cfc42931e38f1b4cdf4df040.png)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6fd478cf9ff497885c4bc72dfaaad4f~tplv-k3u1fbpfcp-zoom-1.image)
 
 **他奶奶地！为什么会报错？！**
 
-![](https://img-blog.csdnimg.cn/img_convert/48dbfd9b9eb7a53a5e06f042b1957a4e.png)
-
+![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a6be60386b446eda6ea3ff02545c18c~tplv-k3u1fbpfcp-watermark.image?)
 这是因为 `tsc` 只有两种调用方式：
 
 * `tsc -p tsconfig.json`：直接加载 `tsconfig.json` 时，会编译 `tsconfig.json` 里 `include` 的文件
@@ -98,12 +97,12 @@ interface Hello {
 
 但是这又回到刚刚无法检测 `messyTypes.d.ts` 里 `Hello` interface 的问题，因为 `messyTypes.d.ts` 没有被放到 `files` 中：
 
-![](https://img-blog.csdnimg.cn/img_convert/44ec76dc2bb67f064fd94d86a5950071.png)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/621ffad6e2ba4bd2ac838c94db9de295~tplv-k3u1fbpfcp-zoom-1.image)
 
 这个问题在 [这个 Issue: Current version incorrectly analyzes @types/node](https://github.com/gustavopch/tsc-files/issues/20 "tsc-files 问题") 中又又又被疯狂讨论。
 里面提出了一个想法：把 `typeRoots` 的路径放到 `include` 里，这样就可以用 `typeRoots` 自定义类型声明文件的路径来检测所有的 `.d.ts` 了，但是这还是有问题，具体看下面这段：
 
-![这两段是该 Issue 的讨论核心](https://img-blog.csdnimg.cn/img_convert/27e855e1349058d32f258d3447d733ff.png)
+![这两段是该 Issue 的讨论核心](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce4a6418679b46e8885ecf301d6606c4~tplv-k3u1fbpfcp-zoom-1.image)
 
 > deanolium 的观点是：如果把 `typeRoots` 放在 `include` 里，我们不能保证所有人都会用 `tsconfig.json` 里的 `typeRoots`，因为不是所有人都是配置大神。
 > 如果要在 `typeRoots` 里写自定义类型声明文件目录，那就要手动加上 `./node_modules/@types` 目录，不然不会自动 import node_modules 里的 `.d.ts`。
@@ -114,7 +113,7 @@ interface Hello {
 
 累了，毁灭吧。
 
-![](https://img-blog.csdnimg.cn/d143f175e1664f23995869564ba56a96.png)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac607546a8664c3cb4d6353963209f11~tplv-k3u1fbpfcp-zoom-1.image)
 
 ## 最终方案
 
@@ -122,7 +121,7 @@ interface Hello {
 
 最终，有一位大哥提供了一种思路：**可以不用 `tsc-files`，用 `tsc` ，不过需要把你自己写的 `.d.ts` 放到路径里。**
 
-![](https://img-blog.csdnimg.cn/img_convert/e3538347b02c3f75b11d6f8c54a31552.png)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/919fa8236b7f4788bf617c4c611fd834~tplv-k3u1fbpfcp-zoom-1.image)
 
 **个人觉得这个方案应该是目前最好的解决方案了，虽然也是做了妥协，但是这可以让开发者很清楚地知道每次要扫哪些 `.d.ts`，
 不会遇到 "都配置了，但为什么没扫到" 的问题，也减少一些 "黑盒" 的坑。**

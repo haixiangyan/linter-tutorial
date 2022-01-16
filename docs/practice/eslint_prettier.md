@@ -57,13 +57,13 @@ npx prettier --write messyJS.js
 
 幸好如今 IDE 和一些代码编辑器已经对 Prettier 做了非常好的集成，比如 WebStorm 里：
 
-![WebStorm 配置](https://img-blog.csdnimg.cn/img_convert/3232ecea7c49647d1dede6b1231c0e3f.png))
+![WebStorm 配置](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/200e6acb3fce4efba1d482885ac35b3e~tplv-k3u1fbpfcp-zoom-1.image))
 
 我习惯是不打开【保存时自动格式化】，有点耗内存。另一个选项则是 IDE 会使用 Prettier 的配置来格式化，如果不开启这个选项，那么 IDE 会按自己的风格来格式化，这里推荐开启这个选项。
 
 说到这里，相信有的同学已经按耐不住了：IDE 格式化是按 Prettier 配置来了，但是我以前项目经常见的 `ESLint: Fix xxx` 提示咋不出现呢？
 
-![WebStorm 的提示](https://img-blog.csdnimg.cn/img_convert/0abff602219f6c671de9911a79060ca5.png)
+![WebStorm 的提示](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65b2b5bf989848dc84d355dfc175e126~tplv-k3u1fbpfcp-zoom-1.image)
 
 这个提示是 ESLint 报的提示，下面我们来讲怎么配置 ESLint x Prettier。
 
@@ -106,7 +106,7 @@ module.exports = {
 
 加完配置后就会发现代码已经有对应的自动修复提示了：
 
-![](https://img-blog.csdnimg.cn/img_convert/edc92dd1afa2e8daf43fabc08c7876a2.png)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f657868ee12f455592c8f187add22368~tplv-k3u1fbpfcp-zoom-1.image)
 
 **在 ESLint 集成了 Prettier 后，在在命令行里执行 `eslint xxx.js --fix`，
 那么 ESLint 就会调用 Prettier 的格式化功能来帮你格式化代码了。**
@@ -157,7 +157,7 @@ eslint xxx.js --fix --rule 'prettier/prettier: off' # 忽略 prettier 规则
 **一般来说，我们用 ESLint x Prettier 在 IDE 里看代码风格报错的需求远比在命令行里 `eslint --fix` 的需求要强烈很多，
 所以这里性能慢一点也还 OK。**
 
-![IDE 看错误的需求更强烈](https://img-blog.csdnimg.cn/img_convert/edc92dd1afa2e8daf43fabc08c7876a2.png)
+![IDE 看错误的需求更强烈](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06649653e5ef4202bbecb5c219ad5463~tplv-k3u1fbpfcp-zoom-1.image)
 
 **除了一种情况是例外：使用 `lint-staged`，每次提交都要 `eslint --fix` 的时候，此时就可以换成上面两行命令了。这里后面再说。**
 
