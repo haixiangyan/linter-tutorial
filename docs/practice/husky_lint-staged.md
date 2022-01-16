@@ -1,8 +1,10 @@
 # 🐶 Husky x LintStaged
 
-我们不能保证所有人提交的代码都是 fix 好的。比如有的人经常忘记开启 ESLint 插件，提交代码时还以为自己代码写的贼 6，没啥报错，但到队友那 `git pull` 满屏都是红的。
+上一章说到我们不能保证所有人提交的代码都是 fix 好的。
+比如有的人经常忘记开启 ESLint 插件，提交代码时还以为自己代码写的贼 6，没啥报错，但到队友那 `git pull` 满屏都是红的。
+所以，更好的做法是在代码入库（Commit 和 Push）的时候可以做一次 ESLint 的检查。
 
-Git 提供了很多 [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)：
+正好 Git 提供了很多 [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)：
 
 * pre-commit: 提交代码前做一些事
 * pre-push: 推代码前做一些事
@@ -10,7 +12,8 @@ Git 提供了很多 [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-G
 * pre-rebase: rebase 前做一些事
 * ...
 
-这些 Hooks 可以使得我们在操作 Git 的某些阶段做一些事情。而 [Husky](https://github.com/typicode/husky) 可以让我们在这些阶段里执行 Bash 指令。
+这些 Hooks 可以使得我们在操作 Git 的某些阶段做一些事情。 [Husky](https://github.com/typicode/husky) 可以在这些 Git Hooks 回调时执行我们定义好的 Bash 脚本。
+如果我们把 ESLint 的修复命令放在这些的 Bash 脚本中，那就可以实现 Git Commit/Push/Merge/... 前的 ESLint 自动修复了！
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff5840b7cace468e975505b05bf24cf6~tplv-k3u1fbpfcp-zoom-1.image))
 

@@ -82,4 +82,4 @@ module.exports = {
 
 在日常开发中，我们不能保证所有人都会在写完代码后跑一次 Linter，有的人或许忘记开启 Linter 校验，有的人可能懒得修复，有的人可能根本就不知道有 Linter 这玩意！
 
-所以，我们更希望可以在 `git commit` 或者 `git push` 前再做一次 Linter 操作，以此保证入库的代码都是经过修复的。下篇就是最终章了，一起来看看 Husky x lint-staged 吧。
+所以，我们更希望可以在 `git commit` 或者 `git push` 前再做一次 Linter 操作，以此保证入库的代码都是经过修复的，一起来看看 [Husky x lint-staged](./husky_lint-staged) 吧。
