@@ -7,7 +7,7 @@ module.exports = {
       return `tsc ${files.join(" ")} --noEmit --skipLibCheck`;
     },
     "prettier --write",
-    `eslint --cache --fix --rule 'prettier/prettier: off'`,
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   "**/*.{js,jsx}": [
     "prettier --write",

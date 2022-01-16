@@ -163,4 +163,4 @@ ESLint 挠破头皮也猜不出来你写个没有用到的变量是为了啥，�
 
 我们常说的 `ESLint src --fix` 其实更多指代代码风格的修正，不过 ESLint 在格式化方面比较弱，真正的格式化高手是 [Prettier](https://prettier.io)。
 
-下一篇就来讲讲 [ESLint x Prettier]()，看看 ESLint 和 Prettier 能碰撞出多少火花，这将非常有趣。
+下一篇就来讲讲 [ESLint x Prettier](./eslint_prettier)，看看 ESLint 和 Prettier 能碰撞出多少火花，这将非常有趣。

@@ -1,12 +1,6 @@
 # Linter的故事
 
-不知道有多少同学和我一样，都知道 ESLint, TSLint, JSLint, Prettier, lint-staged 等这些代码检验工具（非常不专业的模糊统称），但是却说不清他们之间的关系。
-
-使用的时候基本上就是随便找一篇 ESLint 相关的文章，也不管这些配置是啥意思，把 `.eslintrc.js` 文件一抄就算是 “给项目加上代码校验” 了。
-
-![](https://img-blog.csdnimg.cn/img_convert/9bb125f79e4ac495bc9f71007af2481e.png)
-
-那今天就跟大家聊聊这些 linter, prettier 的发展史和它们之间的关系，以及它们提供了哪些功能。
+这一章跟大家聊聊这些 linter, prettier 的发展史和它们之间的关系，以及它们提供了哪些功能。
 
 ## 静态代码分析
 

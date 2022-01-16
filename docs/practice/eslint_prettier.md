@@ -67,7 +67,7 @@ npx prettier --write messyJS.js
 
 这个提示是 ESLint 报的提示，下面我们来讲怎么配置 ESLint x Prettier。
 
-## 配置 Prettier
+## ESLint 集成
 
 先安装 `eslint-plugin-prettier` 插件：
 
@@ -107,6 +107,59 @@ module.exports = {
 加完配置后就会发现代码已经有对应的自动修复提示了：
 
 ![](https://img-blog.csdnimg.cn/img_convert/edc92dd1afa2e8daf43fabc08c7876a2.png)
+
+**在 ESLint 集成了 Prettier 后，在在命令行里执行 `eslint xxx.js --fix`，
+那么 ESLint 就会调用 Prettier 的格式化功能来帮你格式化代码了。**
+
+## 性能问题
+
+如果你只执行 `eslint xxx.js --fix`，你会发现这个速度怎么这么慢，一个文件也没多少行代码，就要等个 300 400 ms，也太慢了吧。
+为了查清楚谁是罪魁祸首，我们可以在命令前加一个参数 `TIMING=1`：
+
+```shell
+TIMING eslint xxx.js --fix
+```
+
+这个参数会把 ESLint 检查规则所用时间打印出来：
+
+```shell
+Rule                          | Time (ms) | Relative
+:-----------------------------|----------:|--------:
+prettier/prettier             |   134.891 |    97.4%
+no-unused-vars                |     0.559 |     0.4%
+react/display-name            |     0.417 |     0.3%
+no-redeclare                  |     0.358 |     0.3%
+react/no-deprecated           |     0.253 |     0.2%
+no-empty                      |     0.225 |     0.2%
+no-misleading-character-class |     0.125 |     0.1%
+no-global-assign              |     0.125 |     0.1%
+no-dupe-keys                  |     0.116 |     0.1%
+no-empty-character-class      |     0.110 |     0.1%
+```
+
+会发现 `prettier/prettier` 规则所用时间最长，一个文件就用 134ms，那要修复 10 个文件就差不多 1 秒了，这是不能接受的事。
+
+这个问题其实非常明显，但是国内的文章几乎没有提过这个问题（当然国外也没太多），可能因为大家本来就搞不清 ESLint 和 Prettier 的关系，更不知道 Plugin 和 Config 这些包要怎么搭配，
+所以一遇到这种性能问题，也无从查起。 因此我也翻遍了所有的资料，只在 `eslint-plugin-prettier` 这个项目的 [这个 Issue](https://github.com/prettier/eslint-plugin-prettier/issues/304)
+以及 [这个 Issue](https://github.com/prettier/eslint-plugin-prettier/issues/445) 看到相关的讨论。
+
+不过这个讨论也没有给出太多的解决方法，只说了一个现象：**`eslint-plugin-prettier` 就是罪魁祸首，当 Prettier 集成到 ESLint 之后，ESLint 用 Prettier 规则来格式化代码就会很慢，但是将它两分开就会很快。** 比如：
+
+```shell
+prettier xxx.js --write
+
+eslint xxx.js --fix --rule 'prettier/prettier: off' # 忽略 prettier 规则
+```
+
+![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/286785911ba84226a5e34b860ea04b4d~tplv-k3u1fbpfcp-watermark.image?)
+
+说了一堆，原来 ESLint x Prettier 一个大坑啊，那还什么鬼？诶，别急。
+**一般来说，我们用 ESLint x Prettier 在 IDE 里看代码风格报错的需求远比在命令行里 `eslint --fix` 的需求要强烈很多，
+所以这里性能慢一点也还 OK。**
+
+![IDE 看错误的需求更强烈](https://img-blog.csdnimg.cn/img_convert/edc92dd1afa2e8daf43fabc08c7876a2.png)
+
+**除了一种情况是例外：使用 `lint-staged`，每次提交都要 `eslint --fix` 的时候，此时就可以换成上面两行命令了。这里后面再说。**
 
 ## 解决规则冲突
 

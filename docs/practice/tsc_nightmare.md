@@ -8,13 +8,16 @@
 module.exports = {
   '**/*.{ts,tsx}': [
     "tsc", // 检查 TypeScript
-    "eslint --cache --fix",
+    "prettier --write",
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   '**/*.{js,jsx}': [
-    "eslint --cache --fix",
+    "prettier --write",
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   "**/*.vue": [
-    "eslint --cache --fix",
+    "prettier --write",
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   "**/*.{css,less}": [
     "stylelint --cache --fix",
@@ -30,7 +33,8 @@ module.exports = {
 module.exports = {
   '**/*.{ts,tsx}': [
     "tsc --noEmit --skipLibCheck", // 检查 TypeScript
-    "eslint --cache --fix",
+    "prettier --write",
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   ...
 }
@@ -136,7 +140,8 @@ module.exports = {
       const files = [...filenames, ...declarationFiles];
       return `tsc ${files.join(' ')} --noEmit --skipLibCheck`;
     },
-    "eslint --cache --fix",
+    "prettier --write",
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   '**/*.{js,jsx}': [
     "eslint --cache --fix",

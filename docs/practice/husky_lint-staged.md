@@ -16,7 +16,6 @@ Git 提供了很多 [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-G
 
 **注意：Husky v4 和 v7 有非常大的差异，大家一定要注意甄别，最好直接看官网，这里使用最新版跟大家讲解。**
 
-
 ```sh
 # 安装哈士奇
 npm install husky -D
@@ -51,15 +50,19 @@ Prettier 在 [文档的 Pre-commit Hook](https://prettier.io/docs/en/precommit.h
 npm i -D lint-staged
 ```
 
-然后添加 `.lintstagedrc.js` 配置文件：
+然后添加 `.lintstagedrc.js` 配置文件，里面对提交不同的文件进行 `eslint --fix` 操作。这里等会。
+还记得在 [ESLint x Prettier](./eslint_prettier) 说到 `eslint-plugin-prettier` 会拖慢 ESLint 的速度么？
+这里就要将 ESLint 和 Prettier 分开来执行了，而 StyleLint 好像和 Prettier 结合也不是特别慢，所以这里可以先不分开。
 
 ```js
 module.exports = {
   '**/*.{ts,tsx,js,jsx}': [
-    "eslint --cache --fix",
+    "prettier --write",
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   "**/*.vue": [
-    "eslint --cache --fix",
+    "prettier --write",
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   "**/*.{css,less}": [
     "stylelint --cache --fix",
@@ -68,7 +71,6 @@ module.exports = {
 ```
 
 `lint-staged` 配置的含义是对提交上来不同类型的文件执行对应的 lint fix 命令。
-
 
 最后在刚刚创建的 `./.husky/pre-commit` 里改成执行 `lint-staged` 命令：
 
@@ -127,13 +129,16 @@ const hello: Hello = {
 module.exports = {
   '**/*.{ts,tsx}': [
     "tsc", // 检查 TypeScript
-    "eslint --cache --fix",
+    "prettier --write",
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   '**/*.{js,jsx}': [
-    "eslint --cache --fix",
+    "prettier --write",
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   "**/*.vue": [
-    "eslint --cache --fix",
+    "prettier --write",
+    "eslint --cache --fix --rule 'prettier/prettier: off'",
   ],
   "**/*.{css,less}": [
     "stylelint --cache --fix",
