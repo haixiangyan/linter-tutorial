@@ -1,4 +1,4 @@
-# 结语
+# 🙌 结语
 
 OK，终于大功告成了！这是我写的第二本小书，前一本是 [一天学习一个 npm 轮子](https://github.com/haixiangyan/one-day-one-npm-lib)，有兴趣可以看看，海怪又完成了一个小目标。
 

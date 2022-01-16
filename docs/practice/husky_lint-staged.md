@@ -1,4 +1,4 @@
-# Husky x LintStaged
+# 🐶 Husky x LintStaged
 
 我们不能保证所有人提交的代码都是 fix 好的。比如有的人经常忘记开启 ESLint 插件，提交代码时还以为自己代码写的贼 6，没啥报错，但到队友那 `git pull` 满屏都是红的。
 

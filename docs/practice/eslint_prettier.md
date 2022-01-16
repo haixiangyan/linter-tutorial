@@ -1,4 +1,4 @@
-# ESLint x Prettier
+# ✍️ ESLint x Prettier
 
 下面我们来配置 Prettier，它的作用就是格式化代码。先安装依赖：
 

@@ -1,4 +1,4 @@
-# LintStaged x TSC
+# 🤥 LintStaged x TSC
 
 我相信大多数人是不太了解 `tsc`。`tsc` 本身是一个编译工具，它主要工作是将 `.ts` 转换为 `.js` 文件，但是大多数项目在打包时都会用 `babel` 来处理了，所以也就没 `tsc` 什么事了，大家也很少会用到。
 

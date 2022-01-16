@@ -1,4 +1,4 @@
-# ESLint x Plugins
+# 🔌 ESLint x Plugins
 
 上一篇在配置 ESLint x TypeScript 时，我们发现了 Parser 和 Plugin 的规律，下面来聊聊一些常见的 Parser 和 Plugin。
 

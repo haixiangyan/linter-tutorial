@@ -1,4 +1,4 @@
-# Linter的故事
+# 📖 Linter的故事
 
 这一章跟大家聊聊这些 linter, prettier 的发展史和它们之间的关系，以及它们提供了哪些功能。
 

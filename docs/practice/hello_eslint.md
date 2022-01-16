@@ -1,4 +1,4 @@
-# Hello ESLint
+# 👋 Hello ESLint
 
 首先，我们来配置一下 ESLint，在 `src` 下创建一个 `./src/messyJS.js` 文件：
 
