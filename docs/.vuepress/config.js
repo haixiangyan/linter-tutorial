@@ -3,9 +3,15 @@ module.exports = {
   title: "前端代码风格上手教程",
   description:
     "大多数人都知道代码风格以及 ESLint 和 Prettier，但是你真了解它们么？本教程将从历史演进以及上手实战来聊聊 Linter 的世界。",
+  plugins: [
+    "@vuepress/medium-zoom",
+    "@vuepress/back-to-top",
+    "@vuepress/active-header-links",
+  ],
   themeConfig: {
     logo: "/images/logo.png",
-    nav: [{ text: "Github", link: "https://github.com/wecom-sidebar" }],
+    repo: "https://github.com/haixiangyan/linter-guide",
+    lastUpdated: true,
     sidebar: [
       {
         title: "介绍",
