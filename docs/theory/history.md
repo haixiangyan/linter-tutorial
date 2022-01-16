@@ -165,6 +165,12 @@ Prettier 是一个代码风格的修正工具。
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5467b19f81b249a4919c55931c369275~tplv-k3u1fbpfcp-zoom-1.image)
 
+就凭你不会写论文！其实在很早之前已经有人开始研究哪种方式来格式化长文本是最好的（Prettier Printer），比如 Philip Wadler 在 [《A prettier printer》](https://homepages.inf.ed.ac.uk/wadler/papers/prettier/prettier.pdf "A prettier printer") 这里给出了一些自动格式化换行的理论依据。
+
+> A good pretty printer
+must strike a balance between ease of use, flexibility of format, and optimality of
+output.
+
 Prettier 的作者 James 在这篇论文基础上再完善了一些代码风格规则，最终成为了 Prettier 格式化代码的最终方案。比如像下面的链式调用，Prettier 输出的就比原来论文描述的要好看一些：
 
 ```js
