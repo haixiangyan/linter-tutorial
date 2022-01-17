@@ -43,6 +43,7 @@ console.log("z", x, y);
 
 const z: any = 1;
 console.log("z", z);
+console.log("z", z);
 
 const human: Human = {
   noise: 1,

@@ -4,7 +4,7 @@ module.exports = {
   "**/*.{ts,tsx}": [
     (filenames) => {
       const files = [...filenames, ...declarationFiles];
-      return `tsc-files ${files.join(" ")} --noEmit --skipLibCheck`;
+      return `tsc ${files.join(" ")} --noEmit`;
     },
     "eslint --cache --fix",
   ],
