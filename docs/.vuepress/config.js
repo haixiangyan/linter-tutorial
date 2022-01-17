@@ -23,6 +23,12 @@ module.exports = {
     logo: "/images/logo.png",
     repo: "https://github.com/haixiangyan/linter-guide",
     lastUpdated: true,
+    nav: [
+      {
+        text: "Issue",
+        link: "https://github.com/haixiangyan/linter-guide/issues",
+      },
+    ],
     sidebar: [
       {
         title: "介绍",
