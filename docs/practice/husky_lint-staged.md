@@ -92,6 +92,36 @@ npx lint-staged
 
 **因为 `lint-staged` 会把前面的 `*.{js,jsx,ts,tsx}` 来匹配提交的文件，并把它们作为参数传到 `eslint --cache --fix` 后面。所以虽然写的是 `eslint --cache --fix` 时实际上是执行了 `eslint 要修复的文件 --cache --fix`。**
 
+## 性能问题
+
+或许有的同学会发现每次 `eslint --fix` 的时候跑的有点慢，如果你在前面加一个 `TIMING=1`：
+
+```shell
+TIMING=1 eslint src --fix
+```
+
+就可以看到哪个规则跑了多久：
+
+```shell
+Rule                                    | Time (ms) | Relative
+:---------------------------------------|----------:|--------:
+prettier/prettier                       |   207.532 |    79.8%
+@typescript-eslint/no-unused-vars       |    12.738 |     4.9%
+@typescript-eslint/no-floating-promises |     8.053 |     3.1%
+@typescript-eslint/no-unsafe-assignment |     7.509 |     2.9%
+vue/attributes-order                    |     7.424 |     2.9%
+no-unused-vars                          |     1.977 |     0.8%
+no-redeclare                            |     1.539 |     0.6%
+react/display-name                      |     1.219 |     0.5%
+no-global-assign                        |     0.873 |     0.3%
+@typescript-eslint/no-unsafe-argument   |     0.795 |     0.3%
+```
+
+毕竟 `prettier/prettier` 是一大堆的 Prettier 代码风格规则，所以肯定是跑得慢的。
+当然也有很多人会很在意这个点，所以也有了 [这个 Issue](https://github.com/prettier/eslint-plugin-prettier/issues/304) 。
+
+不过这个 Issue 也没能给出太好的解决方案，如果你有更好的方案可以 [在这里提 Issue](https://github.com/haixiangyan/linter-guide/issues) 。
+
 ## LintStaged x TypeScript
 
 你以为到这就完了么？Too yong too simple！如果你在 `.d.ts` 定义一个 `interface`：
