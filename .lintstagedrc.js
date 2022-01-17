@@ -1,11 +1,6 @@
-const declarationFiles = ["./src/messyTypesInfo.d.ts"];
-
 module.exports = {
   "**/*.{ts,tsx}": [
-    (filenames) => {
-      const files = [...filenames, ...declarationFiles];
-      return `tsc ${files.join(" ")} --noEmit`;
-    },
+    () => "tsc -p tsconfig.json --noEmit",
     "eslint --cache --fix",
   ],
   "**/*.{js,jsx}": [

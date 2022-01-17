@@ -111,18 +111,13 @@ interface Hello {
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac607546a8664c3cb4d6353963209f11~tplv-k3u1fbpfcp-zoom-1.image)
 
-## 最终方案
+## 我的方案
 
 总的来说，要么扫描 `src` 里的所有 `.ts` 做类型检查，要么只扫描 Git 提交的文件，但是会报找不到类型的错误。
 
-最终，有一位大哥提供了一种思路：**可以不用 `tsc-files`，用 `tsc` ，不过需要把你自己写的 `.d.ts` 放到路径里。**
+很抱歉，目前我能找到的资料都没有很好的解决方案，如果你有更好的 LintStaged x TypeScript 配置方案，可以 [提 Issue](https://github.com/haixiangyan/linter-guide/issues)。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/919fa8236b7f4788bf617c4c611fd834~tplv-k3u1fbpfcp-zoom-1.image)
-
-**个人觉得这个方案应该是目前最好的解决方案了，虽然也是做了妥协，但是这可以让开发者很清楚地知道每次要扫哪些 `.d.ts`，
-不会遇到 "都配置了，但为什么没扫到" 的问题，也减少一些 "黑盒" 的坑。**
-
-在此方案基础上，我们可以加一个数组来维护项目里的 `.d.ts` 文件：
+不过我自己也想到了一个方法就是显式扫描 `.d.ts`。
 
 ```js
 const declarationFiles = [
@@ -150,3 +145,23 @@ module.exports = {
 ```
 
 或者用 `fs` 模块来读取项目中 `./src/typings` 下的所有 `.d.ts` 声明文件，然后再放到命令中。
+
+要么也可以在每次 Commit 前全面扫描：
+
+```js
+module.exports = {
+  "**/*.{ts,tsx}": [
+    () => "tsc -p tsconfig.json --noEmit",
+    "eslint --cache --fix",
+  ],
+  "**/*.{js,jsx}": [
+    "eslint --cache --fix",
+  ],
+  "**/*.vue": [
+    "eslint --cache --fix",
+  ],
+  "**/*.{css,less}": ["stylelint --cache --fix"],
+};
+```
+
+缺点是 pre-commit 的时候会慢一点。
