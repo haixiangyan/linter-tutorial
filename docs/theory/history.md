@@ -32,11 +32,13 @@ Linter 想要提示错误，那首先就得阅读代码，这也是为什么 Lin
 
 JSLint 的优点就是 **开箱即用**，不需要配置太多多东西，相当于拎包入住。但优点也是缺点，就是 **规则太严格，完全不可扩展和自定义配置，连配置文件都没有。**
 
-说白了，你要改 JSLint 是不可能的，爱用用不用自己造。
+说白了，你要改 JSLint 是不可能的，你用不用吧。
+
+![你要不要吧（误）](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d5a9175bec242d3b080c404d00c955c~tplv-k3u1fbpfcp-zoom-1.image)
 
 ## JSHint
 
-既然 “爱用用，不用自己造” 是吧？2010 的，Anton Kovalyov 跟其它人就 fork 了 JSLint 然后造了 **JSHint**。
+但是你这 JSLint 是生瓜蛋子啊，想改规则改不了，太不灵活了。所以 2010 的时候，Anton Kovalyov 跟其它人就 fork 了 JSLint 然后造成了 **JSHint**。
 
 ![jshint.com](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ee577fea1244b14acc5e051614f5a0b~tplv-k3u1fbpfcp-zoom-1.image)
 
