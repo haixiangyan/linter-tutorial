@@ -53,19 +53,15 @@ Prettier 在 [文档的 Pre-commit Hook](https://prettier.io/docs/en/precommit.h
 npm i -D lint-staged
 ```
 
-然后添加 `.lintstagedrc.js` 配置文件，里面对提交不同的文件进行 `eslint --fix` 操作。这里等会。
-还记得在 [ESLint x Prettier](./eslint_prettier) 说到 `eslint-plugin-prettier` 会拖慢 ESLint 的速度么？
-这里就要将 ESLint 和 Prettier 分开来执行了，而 StyleLint 好像和 Prettier 结合也不是特别慢，所以这里可以先不分开。
+然后添加 `.lintstagedrc.js` 配置文件，里面对提交不同的文件进行 `eslint --fix` 操作。
 
 ```js
 module.exports = {
   '**/*.{ts,tsx,js,jsx}': [
-    "prettier --write",
-    "eslint --cache --fix --rule 'prettier/prettier: off'",
+    "eslint --cache --fix",
   ],
   "**/*.vue": [
-    "prettier --write",
-    "eslint --cache --fix --rule 'prettier/prettier: off'",
+    "eslint --cache --fix",
   ],
   "**/*.{css,less}": [
     "stylelint --cache --fix",
@@ -138,16 +134,13 @@ const hello: Hello = {
 module.exports = {
   '**/*.{ts,tsx}': [
     "tsc", // 检查 TypeScript
-    "prettier --write",
-    "eslint --cache --fix --rule 'prettier/prettier: off'",
+    "eslint --cache --fix",
   ],
   '**/*.{js,jsx}': [
-    "prettier --write",
-    "eslint --cache --fix --rule 'prettier/prettier: off'",
+    "eslint --cache --fix",
   ],
   "**/*.vue": [
-    "prettier --write",
-    "eslint --cache --fix --rule 'prettier/prettier: off'",
+    "eslint --cache --fix",
   ],
   "**/*.{css,less}": [
     "stylelint --cache --fix",

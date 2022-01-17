@@ -54,16 +54,6 @@ JSLint 的优点就是 **开箱即用**，不需要配置太多多东西，相�
 
 当然这东西现在也凉凉了。
 
-## EditorConfig
-
-中间还出现了一个 [EditorConfig](https://editorconfig.org/blog/) 的工具，它的目的是为了规范不同编辑器下的格式化输出。
-
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02838a5caa754e5fb92428f8938f26ab~tplv-k3u1fbpfcp-zoom-1.image)
-
-EditorConfig 相比于 Linter、Prettier，它的好处是 **不需要安装任何 NPM 包，因为它只是一份配置，读取这份配置的工作需要 IDE 自身插件来完成。**
-
-然而，如今随着 Prettier 这个更强大的格式化工具慢慢迭代更新，EditorConfig 也逐渐退出前端舞台了。**一般情况下如果配置了 ESLint + Prettier，EditorConfig 则不再需要了，因为目前 IDE 都能直接读取 Prettier 的配置来格式化代码。**
-
 ## ESlint
 
 2013 年，一个叫 **JSChecker** 的小项目被改名成我们如今非常熟悉的 **ESLint**。
