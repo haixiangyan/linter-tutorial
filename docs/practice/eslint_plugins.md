@@ -137,7 +137,7 @@ overrides: [
 
 ## 考考你
 
-看到这，你的 `.eslintrc.js` 应该已经写了少代码了，当然相信你也能慢慢找到 `eslint`, `plugin`, `config`, `prettier`, `parser` 这些关键词之间排列组合的一些规律了。
+看到这，你的 `.eslintrc.js` 应该已经写了不少代码了，当然相信你也能慢慢找到 `eslint`, `plugin`, `config`, `prettier`, `parser` 这些关键词之间排列组合的一些规律了。
 
 不妨来考考你：
 * 我要用 XXX 公司的 ESLint 规则集，应该找哪个名字的 NPM 包？
