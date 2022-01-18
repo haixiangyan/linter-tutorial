@@ -44,4 +44,4 @@
 **原创不易，如果觉得本教程对你有帮助，希望大家多多 Star 和 Fork。
 同时我也是个新人公众号号主，如果喜欢我写的内容，也欢迎关注公众号【写代码的海怪】。**
 
-![](https://github.com/haixiangyan/haixiangyan/blob/master/%E6%89%AB%E7%A0%81_%E6%90%9C%E7%B4%A2%E8%81%94%E5%90%88%E4%BC%A0%E6%92%AD%E6%A0%B7%E5%BC%8F-%E6%A0%87%E5%87%86%E8%89%B2%E7%89%88.png)
+<img src="https://img-blog.csdnimg.cn/6ce461cc24c44ca58c698722d6549fe5.gif#pic_center" alt="公众号" width="500" >
