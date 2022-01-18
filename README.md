@@ -1,4 +1,4 @@
-# 引子
+# Linter上手完全指南
 
 > 本次实战的所有代码、配置已放在 [Github](https://github.com/haixiangyan/learn-prettier-linter "项目 Github") 可尽情把玩。
 
