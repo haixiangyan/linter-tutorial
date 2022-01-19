@@ -8,13 +8,13 @@
 
 诶？不想承认？那考考你：`eslint`, `prettier`, `eslint-config-prettier`, `eslint-plugin-prettier`, `prettier-eslint` 这些都是个啥关系？它们的职责是什么？
 
-再考考你：如果想用 ESLint 和 TypeScript 结合，要用到哪些包呢？`@typescript-eslint/parser`, `@typescript-eslint/eslint-plugin`, `tslint-plugin-prettier`, `tslint-config-prettier`, `prettier-tslint` 傻傻分不清？
+再考考你：如果想用 ESLint 和 TypeScript 结合，要用到哪些包呢？`@typescript-eslint/parser`, `@typescript-eslint/eslint-plugin`, `tslint-plugin-prettier`, `tslint-config-prettier`, `prettier-tslint` 是不是有种“玩排列组合”的感觉？傻傻分不清？
 
 ![](https://img-blog.csdnimg.cn/img_convert/b24237fe35bc194ff4bd62e45cb8ef2f.png)
 
 ## 目的
 
-是不是有种“玩排列组合”的感觉？在没深入了解这些工具之前，我也很蒙逼。网上的资源也是东一块西一块的，要不只讲 Prettier，要不只讲 ESLint，
+在没深入了解这些工具之前，我也很蒙逼。网上的资源也是东一块西一块的，要不只讲 Prettier，要不只讲 ESLint，
 要不都不讲直接丢一个配置。
 
 其实把这些工具单独拆开来看，它们都是很简单的工具。但是由于前端更新速度太快了，导致出现了很多相似的轮子，比如 `tslint` 和 `eslint`，
