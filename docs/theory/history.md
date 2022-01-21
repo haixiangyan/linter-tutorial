@@ -30,7 +30,7 @@ Linter 想要提示错误，那首先就得阅读代码，这也是为什么 Lin
 
 ![jslint.com](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a908d736ca541ada31a79f28a3f3dff~tplv-k3u1fbpfcp-zoom-1.image)
 
-JSLint 的优点就是 **开箱即用**，不需要配置太多多东西，相当于拎包入住。但优点也是缺点，就是 **规则太严格，完全不可扩展和自定义配置，连配置文件都没有。**
+JSLint 的优点就是 **开箱即用**，不需要配置太多的东西，相当于拎包入住。但优点也是缺点，就是 **规则太严格，完全不可扩展和自定义配置，连配置文件都没有。**
 
 说白了，你要改 JSLint 是不可能的，你用不用吧。
 
@@ -180,7 +180,7 @@ hello()
 
 ### 如何工作
 
-首先，Prettier 会把代码转换成 AST (Abstract Syntax Tree)，这里用到的是一个叫 [Recast](https://github.com/benjamn/recast) 的库，而 Recase 实际上也用了 [Esprima](https://github.com/jquery/esprima) 来解析 ES6。
+首先，Prettier 会把代码转换成 AST (Abstract Syntax Tree)，这里用到的是一个叫 [Recast](https://github.com/benjamn/recast) 的库，而 Recast 实际上也用了 [Esprima](https://github.com/jquery/esprima) 来解析 ES6。
 
 所以无论之前的代码怎么乱，怎么屎，Prettier 都抹掉之前的所有样式，抽成最本质的语法树。
 
@@ -219,7 +219,7 @@ Prettier 属于 Opinionated 哲学，这意味着它提供的代码风格已经�
 
 我们可以把 ESLint 的 linter 规则分为两类：
 
-* 格式化规则：比如，max-len, no-mixed-spaces-and-tabs, keyword-spacing, comma-style... 等规则。在 ESLint 报错需要自动修复时，Prettier 可以将这些有代码风格有问题的代码统一按最好看的风格来格式化。
+* 格式化规则：比如，max-len, no-mixed-spaces-and-tabs, keyword-spacing, comma-style... 等规则。在 ESLint 报错需要自动修复时，Prettier 可以将这些代码风格有问题的代码统一按最好看的风格来格式化。
 * 代码质量规则：比如，no-unused-vars, no-extra-bind, no-implicit-globals, prefer-promise-reject-errors... 等规则。在 ESLint 报错时，一般只能开发者自己手动处理。
 
 刚刚说到 ESLint 对一些代码风格的自动修复束手无策，而 Prettier 正好是这方面的专家，所以我们可以让 Prettier 接管 ESLint 格式化代码的工作，自动修复违反格式化规则的代码，剩下的代码质量规则则还是交给 ESLint 自己上报错误。
@@ -232,10 +232,10 @@ Prettier 属于 Opinionated 哲学，这意味着它提供的代码风格已经�
 
 ## TSLint
 
-好了我们再说回 Linter。2012 微软公布了第一版的 TypeScript，随之而来的还有一个 TSLint 的 Linter。
+好了我们再说回 Linter。2012 微软公布了第一版的 TypeScript，随之而来的还有一个叫 TSLint 的 Linter。
 
 在那段时间里，TSLint 是 TypeScript 的标准 Linter 工具，ESLint 则为 JavaScript 标准 Linter。它们各有自身特色：
-**ESLint 有 TSLint 所有没有的一些语法特性支持，而 TSLint 可以对代码进行静态分析和类型检查。**
+**ESLint 有 TSLint 所没有的一些语法特性支持，而 TSLint 可以对代码进行静态分析和类型检查。**
 
 可是，一份代码还要两个 Linter 并行检查属实有点让人不爽。TSLint 也经常和 ESLint 的人探讨应该用哪个作为主力 Linter。TS 的社区也有很多声音希望优先满足 JSer 的需求，毕竟 TS 是 JS 的超集嘛，还是以 ESLint 为主。
 
