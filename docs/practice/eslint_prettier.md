@@ -147,13 +147,18 @@ function foo() {
 }
 ```
 
-要禁用别人的规则首先得继承这些规则，同时你还得经常关注以后会不会又有哪些规则冲突了。这时，**Prettier 就说了：不用关注，我来帮你维护，所以有了 [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)。**
+为了解决ESLint配置可能与Prettier产生的冲突，利用[eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)来关闭相关的配置。
+
+> Turns off all rules that are unnecessary or might conflict with Prettier.
+> This lets you use your favorite shareable config without letting its stylistic choices get in the way when using Prettier.
+> Note that this config only turns rules off, so it only makes sense using it together with some other config.
+
 
 ```sh
 npm i -D eslint-config-prettier
 ```
 
-这个库还提供了一种缩写版的配置：直接在 `.eslintrc.js` 中写一行配置即可完成 ESLint x Prettier 的所有配置。
+`eslint-plugin-prettier` 库还提供了一种缩写版的配置：直接在 `.eslintrc.js` 中写一行配置即可完成 ESLint x Prettier 的所有配置。
 
 ```js
 module.exports = {
@@ -199,6 +204,8 @@ module.exports = {
   }
 }
 ```
+
+至于为啥规则集合需要去单独设置 `arrow-body-style` 和 `prefer-arrow-callback`, 参考这个 [issue](https://github.com/prettier/eslint-plugin-prettier/issues/65)
 
 上一篇里说到看到 `eslint-config-xxx` 就相当于看到了 xxx 的规则集。这里也同样适用：**`eslint-config-prettier` 可以看成 Prettier 的代码风格规则集。只不过这里的作用是禁用掉一些和 Prettier 有冲突的规则。**
 
