@@ -1,5 +1,5 @@
 module.exports = {
-  base: "/linter-guide/",
+  base: "/linter-tutorial/",
   title: "Linter上手完全指南",
   description:
     "你真了解 Liner 么？本教程将从历史演进以及上手实战来聊聊 Linter 的世界。",
@@ -21,12 +21,12 @@ module.exports = {
   ],
   themeConfig: {
     logo: "/images/logo.png",
-    repo: "https://github.com/haixiangyan/linter-guide",
+    repo: "https://github.com/haixiangyan/linter-tutorial",
     lastUpdated: true,
     nav: [
       {
         text: "Issue",
-        link: "https://github.com/haixiangyan/linter-guide/issues",
+        link: "https://github.com/haixiangyan/linter-tutorial/issues",
       },
     ],
     sidebar: [

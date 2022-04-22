@@ -120,7 +120,7 @@ no-global-assign                        |     0.873 |     0.3%
 毕竟 `prettier/prettier` 是一大堆的 Prettier 代码风格规则，所以肯定是跑得慢的。
 当然也有很多人会很在意这个点，所以也有了 [这个 Issue](https://github.com/prettier/eslint-plugin-prettier/issues/304) 。
 
-不过这个 Issue 也没能给出太好的解决方案，如果你有更好的方案可以 [在这里提 Issue](https://github.com/haixiangyan/linter-guide/issues) 。
+不过这个 Issue 也没能给出太好的解决方案，如果你有更好的方案可以 [在这里提 Issue](https://github.com/haixiangyan/linter-tutorial/issues) 。
 
 ## LintStaged x TypeScript
 

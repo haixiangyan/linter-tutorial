@@ -115,7 +115,7 @@ interface Hello {
 
 总的来说，要么扫描 `src` 里的所有 `.ts` 做类型检查，要么只扫描 Git 提交的文件，但是会报找不到类型的错误。
 
-很抱歉，目前我能找到的资料都没有很好的解决方案，如果你有更好的 LintStaged x TypeScript 配置方案，可以 [提 Issue](https://github.com/haixiangyan/linter-guide/issues)。
+很抱歉，目前我能找到的资料都没有很好的解决方案，如果你有更好的 LintStaged x TypeScript 配置方案，可以 [提 Issue](https://github.com/haixiangyan/linter-tutorial/issues)。
 
 不过我自己也想到了一个方法就是显式扫描 `.d.ts`。
 
