@@ -1,5 +1,5 @@
 {
-  "name": "learn-prettier-linter",
+  "name": "linter-toturial",
   "version": "1.0.0",
   "description": "学习 prettier 和 linter",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haixiangyan/learn-prettier-linter.git"
+    "url": "git+https://github.com/haixiangyan/linter-toturial.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/haixiangyan/learn-prettier-linter/issues"
+    "url": "https://github.com/haixiangyan/linter-toturial/issues"
   },
-  "homepage": "https://github.com/haixiangyan/learn-prettier-linter#readme",
+  "homepage": "https://github.com/haixiangyan/linter-toturial#readme",
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
